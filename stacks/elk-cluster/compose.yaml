@@ -1,0 +1,48 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.5.4
+    container_name: elasticsearch
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      node.name: es-${NODE_INDEX:?provided by ansible (ansible/stacks.yaml)}
+      cluster.name: bench
+      discovery.seed_hosts: backend-1,backend-2,backend-3
+      cluster.initial_master_nodes: es-1,es-2,es-3
+      network.host: 0.0.0.0
+      network.publish_host: ${NODE_IP:?provided by ansible (ansible/stacks.yaml)}
+      xpack.security.enabled: "false"
+      xpack.security.enrollment.enabled: "false"
+      xpack.ml.enabled: "false"
+      xpack.monitoring.collection.enabled: "false"
+      ingest.geoip.downloader.enabled: "false"
+      bootstrap.memory_lock: "true"
+      ES_JAVA_OPTS: -Xms1g -Xmx1g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65535
+        hard: 65535
+    volumes:
+    - esdata:/usr/share/elasticsearch/data
+    mem_limit: ${MAIN_MEM:-2048m}
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:9.5.4
+    container_name: kibana
+    restart: unless-stopped
+    network_mode: host
+    profiles:
+    - node1
+    environment:
+      ELASTICSEARCH_HOSTS: http://backend-1:9200
+      TELEMETRY_ENABLED: "false"
+      NODE_OPTIONS: --max-old-space-size=700
+    depends_on:
+    - elasticsearch
+    mem_limit: 1024m
+
+volumes:
+  esdata:

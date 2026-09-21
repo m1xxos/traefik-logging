@@ -1,0 +1,20 @@
+services:
+  openobserve:
+    image: openobserve/openobserve:v1.0.3
+    container_name: openobserve
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      ZO_LOCAL_MODE: "true"
+      ZO_LOCAL_MODE_STORAGE: disk
+      ZO_DATA_DIR: /data
+      ZO_ROOT_USER_EMAIL: root@example.com
+      ZO_ROOT_USER_PASSWORD: ${BENCH_PASSWORD:?provided by ansible (ansible/stacks.yaml)}
+      ZO_PROMETHEUS_ENABLED: "true"
+      ZO_TELEMETRY: "false"
+    volumes:
+    - o2data:/data
+    mem_limit: 7680m
+
+volumes:
+  o2data:

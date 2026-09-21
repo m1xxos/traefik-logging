@@ -1,0 +1,49 @@
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+- job_name: node
+  static_configs:
+  - targets:
+    - 192.168.1.60:9100
+    - 192.168.1.61:9100
+    - 192.168.1.62:9100
+    - 192.168.1.63:9100
+    - 192.168.1.64:9100
+    - 192.168.1.65:9100
+
+- job_name: cadvisor
+  static_configs:
+  - targets:
+    - 192.168.1.60:8081
+    - 192.168.1.61:8081
+    - 192.168.1.62:8081
+    - 192.168.1.63:8081
+    - 192.168.1.64:8081
+    - 192.168.1.65:8081
+
+- job_name: traefik
+  static_configs:
+  - targets:
+    - 192.168.1.61:8080
+    - 192.168.1.62:8080
+
+- job_name: fluent-bit
+  metrics_path: /api/v2/metrics/prometheus
+  static_configs:
+  - targets:
+    - 192.168.1.61:2020
+    - 192.168.1.62:2020
+
+# The backend's own metrics; the file is picked by BACKEND in .env. elk has
+# no native endpoint, its file is empty on purpose.
+- job_name: backend
+  file_sd_configs:
+  - files:
+    - /etc/vmagent/targets/%{BACKEND}.yaml
+
+- job_name: minio
+  metrics_path: /minio/v2/metrics/cluster
+  file_sd_configs:
+  - files:
+    - /etc/vmagent/targets/%{BACKEND}-minio.yaml

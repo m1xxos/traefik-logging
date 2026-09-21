@@ -1,0 +1,17 @@
+services:
+  victorialogs:
+    image: victoriametrics/victoria-logs:v1.52.0
+    container_name: victorialogs
+    restart: unless-stopped
+    network_mode: host
+    command:
+    - -storageDataPath=/vlogs
+    - -retentionPeriod=7d
+    - -httpListenAddr=:9428
+    - -loggerLevel=WARN
+    volumes:
+    - vlogs:/vlogs
+    mem_limit: 7680m
+
+volumes:
+  vlogs:

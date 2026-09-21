@@ -1,0 +1,5299 @@
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/4865
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1913
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/941
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1360
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4663
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/4100
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/327
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/212
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4713/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=37&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2851
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/503
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1318
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4059
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/2068
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/3386
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/423
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4500/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/3590
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/1961
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=1&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/930
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/2240
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3953
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3143
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3400
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4160
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/2446
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4452
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2637
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=37&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=33&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2720
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3607
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3744
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1181
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=5&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2172
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=6&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2692
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4433/items
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2355
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/2454
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2658
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2937
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1193
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=40&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3134
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1973
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2081
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/4478
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3619
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2475
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=7&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3125
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=2&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4070
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1558/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=7&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/323
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=9&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/3404
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/4349
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=17&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3948
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=8&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/617
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1849
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4396
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3020
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=24&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/1916
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4600/items
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3804
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/372
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3184
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/1266
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/812
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=4&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2261/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=37&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2272
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4426
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1430
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/212
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=16&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3449
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/521
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2966
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.1815.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3291
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/3634
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/539
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=25&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4517
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3700
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=21&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2089
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3886
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=6&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/503
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/4805
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/422
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2560
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1268
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/503
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4557
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3516
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4561
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2876
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1174
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4346
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.3440.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1290
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=4&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/health
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/669
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=27&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1766
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/2321
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4317
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/1807
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/449
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2470
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/503
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2688
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4075
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1886
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2902
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/347
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2565
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4698
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/cart/2965/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/868
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/645
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2542
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2729
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2863
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1210
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1200
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1422
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/618
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/4619
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4625
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2590
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=18&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=23&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/608
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=19&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/691
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=3&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3587
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2982
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=27&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2772
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2742
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=19&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4938
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/668
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1159
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=9&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=22&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=33&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=14&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3984
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=10&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4893
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1330
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1357
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3366
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/session/2335
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4375
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3843
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/2309
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4321
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1636
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=24&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4206/items
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/3696
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3399
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4113
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3164
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1840/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/812
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2351
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/44
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/911
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2468
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1954
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=5&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4095/items
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=1&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2891
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3413
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/702
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/3170
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=23&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=23&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/2724
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=35&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=30&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1105
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1652
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2541
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2925/items
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=18&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=28&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3603
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/1531
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4254
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2687
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3653
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/470/items
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=24&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4978
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3001
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3048
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/630
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/4338
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.2576.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/930
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1525
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3656
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1005
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/607
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=6&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=23&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=20&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1291
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2962
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/995
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1138
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4539
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/707
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=5&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3817
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4816
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/503
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/1327
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2327
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=20&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4371
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1382
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1264
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/4470
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2475
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/3327/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/cart/598
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3602
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4970
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1072
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4602/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/cart/1981
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=29&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1155
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2378
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3426
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=13&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1306
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3222
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2305
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4672
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2778
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1182
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4171
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/330
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=22&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1221
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1146/items
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=11&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=38&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4013
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/2714
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4782
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/219/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/session/1865
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=3&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/901
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3864
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/health
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2903
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=13&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1843
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2368
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2858
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2241
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2357
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3624
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=14&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4413
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4808
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/session/3386
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=7&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3897
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=19&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/733
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3424
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3253
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4047
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/health
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/1332
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2687/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/782
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2188
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=24&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1936
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/969
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/4117
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/962
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1810
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3918
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=8&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4487
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/4263
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=38&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4205
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/4620
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/assets/app.179.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/25
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/599
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/494
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=19&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=9&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3675
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/658
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2849
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1044
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/29
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=35&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.4358.js
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1882
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2836
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=8&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3435
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/552
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=29&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1920
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2370/items
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/cart/4720
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4899
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4271
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2462
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4561
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1435
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3123
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3411
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=20&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1183
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=16&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/648
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=6&sort=price
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3090
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/324
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/4814
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.3928.js
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2728
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1736
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/962
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4952
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2319
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4372
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=30&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/3847/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/cart/3037
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/1813
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2137
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4745
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/2766
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4003
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/1379
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1508
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=34&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/53
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1896
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/1238
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=30&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=40&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/3959/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/55
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3370
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4337
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=12&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2904
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3327
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1993/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3321
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4528
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/78/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2714
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=34&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4644
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/382
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/270
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4809
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/1331
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=25&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1147/items
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/2834
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3581
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/623
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2674
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2240/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=28&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4800
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/users/1264
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1264
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1086
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/694
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4686
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+POST http://traefik-1/anything/cart/2203/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=10&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3450
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/631
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2021
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1110
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=28&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=9&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2627
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1646/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=26&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1986
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/933
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4507/items
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/3782
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2387
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2481/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=28&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3089
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4899
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3284
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2946
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=7&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=23&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/363
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3527
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/session/4184
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.4756.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3794
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=10&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/202/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/2421
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/951/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/551
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/943
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1347
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1430
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3319
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3541
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1617
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3519
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1760
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4399
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=34&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2568
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=38&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=23&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/695
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/966
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=12&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1159
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3427
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4709
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1522
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4403
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3695
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.2942.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/health
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=27&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/678
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1807
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2252
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/cart/3747
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/928/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3006
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1791
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/health
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4890/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/2652
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/4215
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3372
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1040
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=21&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2028
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/delay/1
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2280
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3999
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2645
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4484
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4638
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/816
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1018
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3740
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1658
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/3047
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/1919
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=31&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1088
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/assets/app.4256.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=28&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=25&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/840
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/4615
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1746
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=14&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/824/items
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/cart/1009
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3146
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2577
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=6&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=19&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/220
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/1546
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=16&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3162
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=27&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4476/items
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/products?page=5&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/4812
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/2148/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=33&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/503
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4396
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1665
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2677
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3584
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2003
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/4988/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/assets/app.1439.js
+Host: static.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=1&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4238
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/241
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1289
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/403
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/101
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=24&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2034
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2621
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/639/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/979
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/432
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/708
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/2389
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=40&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3801
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4042
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/53
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/1909
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/500
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/1681
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3440
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=18&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/360
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/401
+Host: auth.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4141
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4652
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/products?page=18&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/612
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/json
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/v1/report
+Host: legacy.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/990/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/1701
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/3796
+Host: auth.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/login
+Host: auth.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/login.json
+
+GET http://traefik-1/anything/users/2493
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/session/748
+Host: auth.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=33&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2449
+Host: shop.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/products?page=36&sort=price
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/
+Host: nobody.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1146/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/cart/1624/items
+Host: shop.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/item.json
+
+GET http://traefik-1/anything/users/689
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2121
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/529
+Host: api.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3633
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/2717
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=4&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=28&sort=price
+Host: api.bench
+User-Agent: Go-http-client/2.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3236
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3136
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2900
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+POST http://traefik-1/anything/orders
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+@/targets/order.json
+
+GET http://traefik-1/anything/cart/1218
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/2014
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/cart/3376
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/
+Host: static.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4454
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3971
+Host: api.bench
+User-Agent: python-requests/2.32.3
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=21&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=12&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/products?page=39&sort=price
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/status/404
+Host: shop.bench
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/3865
+Host: api.bench
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/anything/users/4785
+Host: api.bench
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15
+Accept: application/json, text/plain, */*
+
+GET http://traefik-1/bytes/2048
+Host: shop.bench
+User-Agent: curl/8.7.1
+Accept: application/json, text/plain, */*

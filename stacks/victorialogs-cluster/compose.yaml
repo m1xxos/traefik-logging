@@ -1,0 +1,45 @@
+services:
+  vlstorage:
+    image: victoriametrics/victoria-logs:v1.52.0
+    container_name: vlstorage
+    restart: unless-stopped
+    network_mode: host
+    command:
+    - -storageDataPath=/vlogs
+    - -retentionPeriod=7d
+    - -httpListenAddr=:9428
+    - -loggerLevel=WARN
+    volumes:
+    - vlogs:/vlogs
+    mem_limit: ${MAIN_MEM:-2048m}
+
+  vlinsert:
+    image: victoriametrics/victoria-logs:v1.52.0
+    container_name: vlinsert
+    restart: unless-stopped
+    network_mode: host
+    profiles:
+    - node1
+    command:
+    - -httpListenAddr=:9481
+    - -storageNode=backend-1:9428,backend-2:9428,backend-3:9428
+    - -select.disable
+    - -loggerLevel=WARN
+    mem_limit: 512m
+
+  vlselect:
+    image: victoriametrics/victoria-logs:v1.52.0
+    container_name: vlselect
+    restart: unless-stopped
+    network_mode: host
+    profiles:
+    - node1
+    command:
+    - -httpListenAddr=:9471
+    - -storageNode=backend-1:9428,backend-2:9428,backend-3:9428
+    - -insert.disable
+    - -loggerLevel=WARN
+    mem_limit: 768m
+
+volumes:
+  vlogs:

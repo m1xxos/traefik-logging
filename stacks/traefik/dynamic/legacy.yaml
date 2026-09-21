@@ -1,0 +1,13 @@
+http:
+  routers:
+    legacy:
+      rule: "Host(`legacy.bench`)"
+      service: "legacy"
+      entryPoints:
+      - "web"
+
+  services:
+    legacy:
+      loadBalancer:
+        servers:
+        - url: "http://127.0.0.1:9/"

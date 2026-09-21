@@ -1,0 +1,6 @@
+[Unit]
+Description=Rotate traefik logs
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.d/traefik

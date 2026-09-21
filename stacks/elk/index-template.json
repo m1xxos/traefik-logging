@@ -1,0 +1,42 @@
+{
+  "index_patterns": ["logs-traefik-*"],
+  "data_stream": {},
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "refresh_interval": "5s",
+      "index.lifecycle.name": "traefik-7d"
+    },
+    "mappings": {
+      "dynamic_templates": [
+        {
+          "strings_as_keyword": {
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "keyword",
+              "ignore_above": 1024
+            }
+          }
+        }
+      ],
+      "properties": {
+        "@timestamp": { "type": "date" },
+        "Duration": { "type": "long" },
+        "Overhead": { "type": "long" },
+        "OriginDuration": { "type": "long" },
+        "DownstreamStatus": { "type": "integer" },
+        "OriginStatus": { "type": "integer" },
+        "RequestPort": { "type": "integer" },
+        "RequestCount": { "type": "long" },
+        "DownstreamContentSize": { "type": "long" },
+        "OriginContentSize": { "type": "long" },
+        "RequestContentSize": { "type": "long" },
+        "RetryAttempts": { "type": "integer" },
+        "ClientHost": { "type": "ip" },
+        "message": { "type": "text" }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+services:
+  node-exporter:
+    image: prom/node-exporter:v1.12.1
+    container_name: node-exporter
+    restart: unless-stopped
+    network_mode: host
+    pid: host
+    command:
+    - --path.rootfs=/host
+    volumes:
+    - /:/host:ro,rslave
+    mem_limit: 64m
+
+  # 8081 instead of the default 8080: traefik owns 8080 on the traefik VMs and
+  # one port everywhere keeps the vmagent scrape config trivial.
+  cadvisor:
+    image: ghcr.io/google/cadvisor:v0.60.6
+    container_name: cadvisor
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
+    command:
+    - --port=8081
+    - --docker_only=true
+    - --housekeeping_interval=10s
+    - --store_container_labels=false
+    - --enable_metrics=cpu,memory,network,diskIO
+    volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:ro
+    - /sys:/sys:ro
+    - /var/lib/docker:/var/lib/docker:ro
+    - /dev/disk:/dev/disk:ro
+    devices:
+    - /dev/kmsg
+    mem_limit: 192m

@@ -1,0 +1,42 @@
+entryPoints:
+  web:
+    address: ":80"
+  metrics:
+    address: ":8080"
+
+providers:
+  docker:
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
+
+api:
+  dashboard: false
+
+ping:
+  entryPoint: metrics
+
+metrics:
+  prometheus:
+    entryPoint: metrics
+    addEntryPointsLabels: true
+    addRoutersLabels: true
+    addServicesLabels: true
+
+log:
+  filePath: "/var/log/traefik/traefik.log"
+  format: common
+  level: INFO
+  noColor: true
+
+accessLog:
+  filePath: "/var/log/traefik/traefik-access.log"
+  addInternals: true
+  bufferingSize: 200
+  format: json
+  fields:
+    names:
+      StartUTC: drop
+    headers:
+      defaultMode: keep

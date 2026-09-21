@@ -1,0 +1,58 @@
+services:
+  loki:
+    image: grafana/loki:3.7.8
+    container_name: loki
+    restart: unless-stopped
+    network_mode: host
+    command:
+    - -config.file=/etc/loki/loki.yaml
+    - -config.expand-env=true
+    - -target=all
+    environment:
+      NODE_IP: ${NODE_IP:?provided by ansible (ansible/stacks.yaml)}
+      BENCH_PASSWORD: ${BENCH_PASSWORD:?provided by ansible (ansible/stacks.yaml)}
+    volumes:
+    - ./loki.yaml:/etc/loki/loki.yaml:ro
+    - loki:/loki
+    mem_limit: ${MAIN_MEM:-2048m}
+
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    container_name: minio
+    restart: unless-stopped
+    network_mode: host
+    profiles:
+    - node1
+    command:
+    - server
+    - /data
+    - --address=:9000
+    - --console-address=:9001
+    environment:
+      MINIO_ROOT_USER: bench
+      MINIO_ROOT_PASSWORD: ${BENCH_PASSWORD:?provided by ansible (ansible/stacks.yaml)}
+      MINIO_PROMETHEUS_AUTH_TYPE: public
+    volumes:
+    - minio:/data
+    mem_limit: 640m
+
+  minio-init:
+    image: quay.io/minio/mc:RELEASE.2025-08-13T08-35-41Z
+    container_name: minio-init
+    restart: "no"
+    network_mode: host
+    profiles:
+    - node1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+    - |
+      until mc alias set local http://127.0.0.1:9000 bench "$${BENCH_PASSWORD}"; do sleep 2; done
+      mc mb -p local/loki
+    environment:
+      BENCH_PASSWORD: ${BENCH_PASSWORD:?provided by ansible (ansible/stacks.yaml)}
+    depends_on:
+    - minio
+
+volumes:
+  loki:
+  minio:

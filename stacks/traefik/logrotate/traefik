@@ -1,0 +1,11 @@
+/var/log/traefik/*.log {
+    size 1G
+    rotate 3
+    missingok
+    notifempty
+    nocompress
+    sharedscripts
+    postrotate
+        docker kill -s USR1 traefik
+    endscript
+}

@@ -1,0 +1,16 @@
+services:
+  loki:
+    image: grafana/loki:3.7.8
+    container_name: loki
+    restart: unless-stopped
+    network_mode: host
+    command:
+    - -config.file=/etc/loki/loki.yaml
+    - -target=all
+    volumes:
+    - ./loki.yaml:/etc/loki/loki.yaml:ro
+    - loki:/loki
+    mem_limit: 7680m
+
+volumes:
+  loki:
