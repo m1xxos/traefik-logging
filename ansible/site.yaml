@@ -1,0 +1,8 @@
+- name: Install docker
+  ansible.builtin.import_playbook: docker.yaml
+
+- name: Prepare hosts
+  ansible.builtin.import_playbook: hosts.yaml
+
+- name: Deploy stacks
+  ansible.builtin.import_playbook: stacks.yaml

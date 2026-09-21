@@ -1,0 +1,58 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  BACKEND: '{{.BACKEND | default "none"}}'
+  MODE: '{{.MODE | default "single"}}'
+
+tasks:
+  deps:
+    desc: "Install the galaxy role and collections the playbooks need"
+    cmds:
+    - ansible-galaxy role install geerlingguy.docker
+    - ansible-galaxy collection install community.docker ansible.posix
+
+  tfinit:
+    cmds:
+    - terraform -chdir=terraform init -backend-config=yc.auto.tfvars
+
+  tfplan:
+    cmds:
+    - terraform -chdir=terraform plan -var backend={{.BACKEND}} -var mode={{.MODE}}
+
+  tfapply:
+    cmds:
+    - terraform -chdir=terraform apply -var backend={{.BACKEND}} -var mode={{.MODE}}
+
+  deploy:
+    cmds:
+    - ansible-playbook -i ansible/inventory.yaml ansible/site.yaml
+
+  bench:
+    desc: "Create the backend VMs and deploy everything. Usage: task bench BACKEND=loki MODE=cluster"
+    cmds:
+    - task: tfapply
+    - task: deploy
+
+  bench-run:
+    desc: "Run the RPS steps and collect a CSV. Usage: task bench-run BACKEND=loki MODE=cluster"
+    cmds:
+    - ./bench/run.sh {{.BACKEND}} {{.MODE}}
+
+  backend-reset:
+    desc: "Wipe the backend's data volumes and start it again, for a clean run without recreating the VMs"
+    cmds:
+    - ansible -i ansible/inventory.yaml backend -b -m community.docker.docker_compose_v2 -a "project_src=/opt/stacks/backend state=absent remove_volumes=true"
+    - task: deploy
+
+  summarize:
+    desc: "Print the RESULTS.md table from docs/results/*.csv"
+    cmds:
+    - python3 bench/summarize.py
+
+  teardown:
+    desc: "Drop the backend VMs, keep traefik and control"
+    cmds:
+    - terraform -chdir=terraform apply -var backend=none
+    - ansible-playbook -i ansible/inventory.yaml ansible/site.yaml

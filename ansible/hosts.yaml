@@ -1,0 +1,23 @@
+- name: Resolve stand hostnames
+  hosts: all
+  become: true
+  tasks:
+    - name: Add every stand VM to /etc/hosts
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: "\\s{{ item }}$"
+        line: "{{ hostvars[item].ansible_host }} {{ item }}"
+      loop: "{{ groups.all }}"
+
+- name: Tune backend kernel limits
+  hosts: backend
+  become: true
+  tasks:
+    # elasticsearch 9 refuses to start below 1048576 (was 262144 on 8.x);
+    # harmless for the other backends.
+    - name: Raise vm.max_map_count
+      ansible.posix.sysctl:
+        name: vm.max_map_count
+        value: "1048576"
+        sysctl_set: true
+        state: present

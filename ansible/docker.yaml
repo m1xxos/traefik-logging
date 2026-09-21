@@ -1,0 +1,9 @@
+- name: Install docker
+  hosts: all
+  become: true
+  vars:
+    docker_users:
+      - m1xxos
+    docker_install_compose_plugin: true
+  roles:
+    - geerlingguy.docker

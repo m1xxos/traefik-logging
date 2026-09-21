@@ -1,0 +1,18 @@
+all:
+  vars:
+    backend: ${backend}
+    mode: ${mode}
+%{ for role in ["control", "traefik", "backend"] ~}
+%{ if length([for vm in vms : vm if vm.role == role]) > 0 ~}
+
+${role}:
+  hosts:
+%{ for name, vm in vms ~}
+%{ if vm.role == role ~}
+    ${name}:
+      ansible_host: ${vm.ip}
+      node_index: ${try(tonumber(split("-", name)[1]), 1)}
+%{ endif ~}
+%{ endfor ~}
+%{ endif ~}
+%{ endfor ~}

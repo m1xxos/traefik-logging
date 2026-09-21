@@ -1,0 +1,214 @@
+- name: Deploy node exporters
+  hosts: all
+  become: true
+  tasks:
+    - name: Copy node stack
+      ansible.builtin.copy:
+        src: ../stacks/node/
+        dest: /opt/stacks/node
+        mode: "0755"
+
+    - name: Start node stack
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/node
+        state: present
+        remove_orphans: true
+
+- name: Deploy traefik
+  hosts: traefik
+  become: true
+  tasks:
+    - name: Copy traefik stack
+      ansible.builtin.copy:
+        src: ../stacks/traefik/
+        dest: /opt/stacks/traefik
+        mode: "0755"
+
+    # In cluster mode each traefik pushes to "its" backend node so ingestion is
+    # spread; victorialogs is the exception because only backend-1 runs vlinsert.
+    - name: Write traefik stack env
+      ansible.builtin.copy:
+        dest: /opt/stacks/traefik/.env
+        mode: "0644"
+        content: |
+          FLB_HOST={{ inventory_hostname }}
+          LOG_TARGET=backend-{{ node_index if (mode == 'cluster' and backend != 'victorialogs') else 1 }}
+          VL_PORT={{ '9481' if mode == 'cluster' else '9428' }}
+
+    - name: Select fluent-bit output for the backend
+      ansible.builtin.copy:
+        src: "../stacks/traefik/fluent-bit/outputs/{{ backend }}.conf"
+        dest: /opt/stacks/traefik/fluent-bit/outputs/active.conf
+        mode: "0644"
+      register: flb_output
+
+    - name: Create traefik log dir
+      ansible.builtin.file:
+        path: /var/log/traefik
+        state: directory
+        mode: "0755"
+
+    - name: Install logrotate config
+      ansible.builtin.copy:
+        src: ../stacks/traefik/logrotate/traefik
+        dest: /etc/logrotate.d/traefik
+        mode: "0644"
+
+    # At 2000 rps the access log grows ~6 GB/h, the daily logrotate timer is
+    # far too slow, so run it every 5 minutes.
+    - name: Install logrotate timer
+      ansible.builtin.copy:
+        src: "../stacks/traefik/logrotate/{{ item }}"
+        dest: "/etc/systemd/system/{{ item }}"
+        mode: "0644"
+      loop:
+        - logrotate-traefik.service
+        - logrotate-traefik.timer
+
+    - name: Enable logrotate timer
+      ansible.builtin.systemd_service:
+        name: logrotate-traefik.timer
+        enabled: true
+        state: started
+        daemon_reload: true
+
+    - name: Start traefik stack
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/traefik
+        state: present
+        remove_orphans: true
+
+    # active.conf is a bind mount, compose sees no change in it, and
+    # fluent-bit does not reload its config: a restart is the only way the
+    # new output takes effect
+    - name: Restart fluent-bit when its output changed
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/traefik
+        services:
+        - fluent-bit
+        state: restarted
+      when: flb_output.changed
+
+- name: Deploy control
+  hosts: control
+  become: true
+  tasks:
+    - name: Copy control stack
+      ansible.builtin.copy:
+        src: ../stacks/control/
+        dest: /opt/stacks/control
+        mode: "0755"
+      register: control_files
+
+    - name: Copy loadgen
+      ansible.builtin.copy:
+        src: ../loadgen/
+        dest: /opt/stacks/loadgen
+        mode: "0755"
+      register: loadgen_files
+
+    - name: Write control stack env
+      ansible.builtin.copy:
+        dest: /opt/stacks/control/.env
+        mode: "0644"
+        content: |
+          BACKEND={{ backend }}
+
+    - name: Start control stack
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/control
+        state: present
+        remove_orphans: true
+        build: always
+
+    # grafana reads provisioning once at start; vmagent reloads its own config
+    - name: Restart grafana when its provisioning changed
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/control
+        services:
+        - grafana
+        state: restarted
+      when: control_files.changed
+
+    # loadgen reads the target files once at start
+    - name: Restart loadgen when its targets changed
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/control
+        services:
+        - loadgen
+        state: restarted
+      when: loadgen_files.changed
+
+- name: Deploy backend
+  hosts: backend
+  become: true
+  vars:
+    stack: "{{ backend }}{{ '-cluster' if mode == 'cluster' else '' }}"
+    # backend-1 carries the shared containers in cluster mode, so its main
+    # process gets less than the 2048m the other two nodes give theirs
+    node1_main_mem:
+      victorialogs: 1280m
+      loki: 1792m
+      elk: 1792m
+      openobserve: 1280m
+  tasks:
+    - name: Copy backend stack
+      ansible.builtin.copy:
+        src: "../stacks/{{ stack }}/"
+        dest: /opt/stacks/backend
+        mode: "0755"
+
+    # Bench-only credentials: the VMs are recreated for every run, so a
+    # fixed password is fine and keeps the fluent-bit outputs static.
+    - name: Write backend stack env
+      ansible.builtin.copy:
+        dest: /opt/stacks/backend/.env
+        mode: "0644"
+        content: |
+          NODE_INDEX={{ node_index }}
+          NODE_IP={{ ansible_host }}
+          MAIN_MEM={{ node1_main_mem[backend] if node_index == 1 else '2048m' }}
+          BENCH_PASSWORD=traefik-logging
+
+    # the node1 profile holds the containers that exist once per cluster
+    # (kibana, minio, nats, postgres, vlinsert, vlselect)
+    - name: Start backend stack
+      community.docker.docker_compose_v2:
+        project_src: /opt/stacks/backend
+        state: present
+        remove_orphans: true
+        profiles: "{{ ['node1'] if node_index == 1 else [] }}"
+
+- name: Configure elasticsearch
+  hosts: backend
+  become: true
+  vars:
+    stack: "{{ backend }}{{ '-cluster' if mode == 'cluster' else '' }}"
+  tasks:
+    - name: Wait for elasticsearch
+      ansible.builtin.uri:
+        url: "http://backend-1:9200/_cluster/health?wait_for_status={{ 'green' if mode == 'cluster' else 'yellow' }}&timeout=60s"
+      register: es_health
+      until: es_health.status == 200
+      retries: 20
+      delay: 10
+      run_once: true
+      when: backend == 'elk'
+
+    - name: Apply traefik ILM policy
+      ansible.builtin.uri:
+        url: http://backend-1:9200/_ilm/policy/traefik-7d
+        method: PUT
+        body_format: json
+        body: "{{ lookup('file', '../stacks/' ~ stack ~ '/ilm-policy.json') }}"
+      run_once: true
+      when: backend == 'elk'
+
+    - name: Apply traefik index template
+      ansible.builtin.uri:
+        url: http://backend-1:9200/_index_template/traefik
+        method: PUT
+        body_format: json
+        body: "{{ lookup('file', '../stacks/' ~ stack ~ '/index-template.json') }}"
+      run_once: true
+      when: backend == 'elk'
