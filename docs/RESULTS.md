@@ -17,6 +17,11 @@ comparison of durability.
 
 | backend | mode | rps/traefik | rps achieved | backend cpu cores | backend mem max | retries | errors | disk growth | per container (cpu / mem) |
 |---|---|---|---|---|---|---|---|---|---|
+| loki | single | 0 | 286 | 0.07 | 0.84 GiB | 0 | 0 | -1.75 GiB | loki 0.06 / 0.53 GiB, loki-grafana 0.02 / 0.32 GiB |
+| loki | single | 100 | 200 | 0.04 | 0.47 GiB | 0 | 0 | -0.01 GiB | loki 0.03 / 0.15 GiB, loki-grafana 0.01 / 0.32 GiB |
+| loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
+| loki | single | 1000 | 2000 | 0.21 | 0.77 GiB | 0 | 0 | 0.24 GiB | loki 0.20 / 0.45 GiB, loki-grafana 0.01 / 0.32 GiB |
+| loki | single | 2000 | 4000 | 0.54 | 0.89 GiB | 0 | 0 | 0.52 GiB | loki 0.52 / 0.57 GiB, loki-grafana 0.01 / 0.32 GiB |
 | victorialogs | cluster | 0 | 386 | 0.04 | 0.58 GiB | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.03 / 0.18 GiB each |
 | victorialogs | cluster | 100 | 200 | 0.04 | 0.37 GiB | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.02 GiB, vlselect 0.00 / 0.03 GiB, vlstorage x3 0.03 / 0.12 GiB each |
 | victorialogs | cluster | 500 | 1000 | 0.09 | 0.45 GiB | 0 | 0 | 0.03 GiB | vlinsert 0.02 / 0.04 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.07 / 0.15 GiB each |
@@ -55,6 +60,19 @@ digests its buffers and merges with no new input.
   vlselect idles without queries.
 - Traefik VMs were 8 GiB for this run (2 GiB for the single run); traefik and fluent-bit never
   used more than ~200 MiB together, so it changes nothing in the numbers.
+
+### loki single, 2026-09-22
+
+- 6 550 804 access lines stored, `loki_discarded_samples_total` 0, no fluent-bit retries. 13
+  streams (host x ServiceName, plus the internal log).
+- 465 MB on disk (chunks + tsdb index + wal) for the same ~10 GB of raw lines: ~22x, against
+  ~36x for victorialogs. The `disk growth` column is noisy for loki: the wal is written and
+  freed as chunks flush, hence the negative drain value.
+- loki itself: 0.52 cores / 0.57 GiB at 2000 rps (victorialogs: 0.35 / 0.36). loki-grafana adds
+  a flat 0.01 cores / 0.32 GiB doing nothing but being up; it is in the `backend` total because
+  loki has no ui without it.
+- `per_stream_rate_limit` raised to 32MB was needed: the api@docker stream alone is ~1.7 MB/s
+  per traefik at 2000 rps, well above the 3 MB/s default with burst.
 
 ## Things that bite
 
