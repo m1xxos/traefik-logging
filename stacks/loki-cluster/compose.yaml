@@ -37,7 +37,7 @@ services:
     - grafana:/var/lib/grafana
     depends_on:
     - loki
-    mem_limit: 512m
+    mem_limit: 448m
 
   minio:
     image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
@@ -57,7 +57,7 @@ services:
       MINIO_PROMETHEUS_AUTH_TYPE: public
     volumes:
     - minio:/data
-    mem_limit: 640m
+    mem_limit: 512m
 
   minio-init:
     image: quay.io/minio/mc:RELEASE.2025-08-13T08-35-41Z

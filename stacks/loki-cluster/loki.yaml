@@ -51,7 +51,13 @@ ingester:
     dir: /loki/wal
   chunk_target_size: 1572864
 
+# querier caps: an explore log-volume query (count_over_time [2s] by level
+# over 15 minutes) pushed loki past its memory limit on the cluster run
+querier:
+  max_concurrent: 2
+
 limits_config:
+  max_query_parallelism: 4
   allow_structured_metadata: true
   volume_enabled: true
   retention_period: 168h

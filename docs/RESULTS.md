@@ -15,26 +15,34 @@ Copies of every log line kept: victorialogs 1x (sharded, no replication), openob
 elasticsearch 2x (1 replica), loki 3x (replication_factor 3). The cluster comparison is partly a
 comparison of durability.
 
-| backend | mode | rps/traefik | rps achieved | backend cpu cores | backend mem max | retries | errors | disk growth | per container (cpu / mem) |
-|---|---|---|---|---|---|---|---|---|---|
-| loki | single | 0 | 286 | 0.07 | 0.84 GiB | 0 | 0 | -1.75 GiB | loki 0.06 / 0.53 GiB, loki-grafana 0.02 / 0.32 GiB |
-| loki | single | 100 | 200 | 0.04 | 0.47 GiB | 0 | 0 | -0.01 GiB | loki 0.03 / 0.15 GiB, loki-grafana 0.01 / 0.32 GiB |
-| loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
-| loki | single | 1000 | 2000 | 0.21 | 0.77 GiB | 0 | 0 | 0.24 GiB | loki 0.20 / 0.45 GiB, loki-grafana 0.01 / 0.32 GiB |
-| loki | single | 2000 | 4000 | 0.54 | 0.89 GiB | 0 | 0 | 0.52 GiB | loki 0.52 / 0.57 GiB, loki-grafana 0.01 / 0.32 GiB |
-| victorialogs | cluster | 0 | 386 | 0.04 | 0.58 GiB | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.03 / 0.18 GiB each |
-| victorialogs | cluster | 100 | 200 | 0.04 | 0.37 GiB | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.02 GiB, vlselect 0.00 / 0.03 GiB, vlstorage x3 0.03 / 0.12 GiB each |
-| victorialogs | cluster | 500 | 1000 | 0.09 | 0.45 GiB | 0 | 0 | 0.03 GiB | vlinsert 0.02 / 0.04 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.07 / 0.15 GiB each |
-| victorialogs | cluster | 1000 | 2000 | 0.15 | 0.60 GiB | 0 | 0 | 0.07 GiB | vlinsert 0.04 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.11 / 0.19 GiB each |
-| victorialogs | cluster | 2000 | 4000 | 0.30 | 0.65 GiB | 0 | 0 | 0.14 GiB | vlinsert 0.10 / 0.11 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.20 / 0.21 GiB each |
-| victorialogs | single | 0 | 371 | 0.05 | 0.28 GiB | 0 | 0 | 0.01 GiB | victorialogs 0.05 / 0.28 GiB |
-| victorialogs | single | 100 | 200 | 0.02 | 0.21 GiB | 0 | 0 | 0.01 GiB | victorialogs 0.02 / 0.21 GiB |
-| victorialogs | single | 500 | 1000 | 0.10 | 0.24 GiB | 0 | 0 | 0.03 GiB | victorialogs 0.10 / 0.24 GiB |
-| victorialogs | single | 1000 | 2000 | 0.18 | 0.27 GiB | 0 | 0 | 0.09 GiB | victorialogs 0.18 / 0.27 GiB |
-| victorialogs | single | 2000 | 4000 | 0.35 | 0.36 GiB | 0 | 0 | 0.14 GiB | victorialogs 0.35 / 0.36 GiB |
+| backend | mode | rps/traefik | rps achieved | backend cpu cores | backend mem max | disk write | disk busy max | retries | errors | disk growth | per container (cpu / mem) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| loki | cluster | 0 | 0 | 0.09 | 1.64 GiB | 0.3 MB/s | 72% | 0 | 0 | -4.67 GiB | loki x3 0.05 / 0.44 GiB each, loki-grafana 0.02 / 0.20 GiB, minio 0.02 / 0.20 GiB |
+| loki | cluster | 100 | 200 | 0.08 | 0.78 GiB | 1.0 MB/s | 1% | 0 | 0 | -0.00 GiB | loki x3 0.07 / 0.15 GiB each, loki-grafana 0.01 / 0.29 GiB, minio 0.00 / 0.06 GiB |
+| loki | cluster | 500 | 1000 | 0.25 | 2.80 GiB | 4.8 MB/s | 1% | 1 | 0 | 1.19 GiB | loki x3 0.24 / 1.82 GiB each, loki-grafana 0.01 / 0.36 GiB, minio 0.00 / 0.07 GiB |
+| loki | cluster | 1000 | 2000 | 0.38 | 2.91 GiB | 9.5 MB/s | 3% | 0 | 0 | 0.86 GiB | loki x3 0.36 / 0.93 GiB each, loki-grafana 0.01 / 0.20 GiB, minio 0.01 / 0.24 GiB |
+| loki | cluster | 2000 | 4006 | 0.41 | 2.33 GiB | 3.1 MB/s | 43% | 0 | 0 | 0.58 GiB | loki x3 0.38 / 0.72 GiB each, loki-grafana 0.02 / 0.20 GiB, minio 0.01 / 0.17 GiB |
+| loki | single | 0 | 286 | 0.07 | 0.84 GiB | 0.5 MB/s | 0% | 0 | 0 | -1.75 GiB | loki 0.06 / 0.53 GiB, loki-grafana 0.02 / 0.32 GiB |
+| loki | single | 100 | 200 | 0.04 | 0.47 GiB | 0.3 MB/s | 0% | 0 | 0 | -0.01 GiB | loki 0.03 / 0.15 GiB, loki-grafana 0.01 / 0.32 GiB |
+| loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 1.5 MB/s | 1% | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
+| loki | single | 1000 | 2000 | 0.21 | 0.77 GiB | 3.1 MB/s | 1% | 0 | 0 | 0.24 GiB | loki 0.20 / 0.45 GiB, loki-grafana 0.01 / 0.32 GiB |
+| loki | single | 2000 | 4000 | 0.54 | 0.89 GiB | 6.3 MB/s | 2% | 0 | 0 | 0.52 GiB | loki 0.52 / 0.57 GiB, loki-grafana 0.01 / 0.32 GiB |
+| victorialogs | cluster | 0 | 386 | 0.04 | 0.58 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.03 / 0.18 GiB each |
+| victorialogs | cluster | 100 | 200 | 0.04 | 0.37 GiB | 0.8 MB/s | 1% | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.02 GiB, vlselect 0.00 / 0.03 GiB, vlstorage x3 0.03 / 0.12 GiB each |
+| victorialogs | cluster | 500 | 1000 | 0.09 | 0.45 GiB | 0.6 MB/s | 1% | 0 | 0 | 0.03 GiB | vlinsert 0.02 / 0.04 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.07 / 0.15 GiB each |
+| victorialogs | cluster | 1000 | 2000 | 0.15 | 0.60 GiB | 0.7 MB/s | 1% | 0 | 0 | 0.07 GiB | vlinsert 0.04 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.11 / 0.19 GiB each |
+| victorialogs | cluster | 2000 | 4000 | 0.30 | 0.65 GiB | 0.9 MB/s | 1% | 0 | 0 | 0.14 GiB | vlinsert 0.10 / 0.11 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.20 / 0.21 GiB each |
+| victorialogs | single | 0 | 371 | 0.05 | 0.28 GiB | 0.1 MB/s | 2% | 0 | 0 | 0.01 GiB | victorialogs 0.05 / 0.28 GiB |
+| victorialogs | single | 100 | 200 | 0.02 | 0.21 GiB | 0.1 MB/s | 1% | 0 | 0 | 0.01 GiB | victorialogs 0.02 / 0.21 GiB |
+| victorialogs | single | 500 | 1000 | 0.10 | 0.24 GiB | 0.2 MB/s | 2% | 0 | 0 | 0.03 GiB | victorialogs 0.10 / 0.24 GiB |
+| victorialogs | single | 1000 | 2000 | 0.18 | 0.27 GiB | 0.4 MB/s | 2% | 0 | 0 | 0.09 GiB | victorialogs 0.18 / 0.27 GiB |
+| victorialogs | single | 2000 | 4000 | 0.35 | 0.36 GiB | 0.6 MB/s | 6% | 0 | 0 | 0.14 GiB | victorialogs 0.35 / 0.36 GiB |
 
 `rps/traefik = 0` is the 10 minute drain after the last step: what the backend costs while it
-digests its buffers and merges with no new input.
+digests its buffers and merges with no new input. `disk write` is what the backend vms' disks
+see (node-exporter, sda, all backend vms summed); `disk busy max` is the busiest backend vm's
+io time fraction. Disk io rows for the first four runs were backfilled from vmsingle (same
+PromQL, evaluated at the original step windows), so they are as good as the live ones.
 
 ## Run notes
 
@@ -74,6 +82,41 @@ digests its buffers and merges with no new input.
 - `per_stream_rate_limit` raised to 32MB was needed: the api@docker stream alone is ~1.7 MB/s
   per traefik at 2000 rps, well above the 3 MB/s default with burst.
 
+### loki cluster, 2026-09-22 (2000 rps step invalid)
+
+- Steps 100/500/1000 are fine: lines stored match lines shipped, discarded 0. Three loki at
+  0.36 cores / 0.93 GiB each at 1000 rps, replication_factor 3 means every line is written
+  three times plus wal plus minio: 9.5 MB/s of disk writes against 0.7 MB/s for the
+  victorialogs cluster at the same step.
+- The 2000 rps step ran into a host-wide i/o stall on plusha (17:50-18:05): minio took its
+  drive offline after 30s without a completed write, the kernel reported hung tasks on
+  backend-1 (minio, 122s) and on traefik-2 (fluent-bit and jbd2, 245s and 368s), disk busy
+  37-62% on every vm including control-1. Only 3.81M of 6.55M lines made it into loki.
+- Two real findings came out of it anyway:
+  1. **fluent-bit + logrotate lose data when the backend is slow.** Push latency went to
+     1.9s p99, fluent-bit paused the tail on backpressure, logrotate renamed the file, and
+     after `Rotate_Wait 30` the unread tail was dropped: no error, no retry, no dropped-records
+     metric, just 86% of the step gone. Now `Rotate_Wait 600` and logrotate `size 2G rotate 4`.
+  2. **A grafana explore query can oom an ingester.** loki on backend-1 (limit 1536m) was
+     oom-killed at 17:26 while serving `sum(count_over_time({...}[2s])) by (detected_level)`
+     (the explore log-volume histogram). Now `querier.max_concurrent 2`,
+     `max_query_parallelism 4`, and node 1 has 1792m for loki (grafana 448m, minio 512m).
+- This run needs to be repeated for a clean 2000 rps number.
+
+## Disk
+
+| run | disk write at 2000 rps | on disk after 6.55M lines |
+|---|---|---|
+| victorialogs single | 0.6 MB/s | 286 MB |
+| victorialogs cluster | 0.9 MB/s (3 nodes) | 307 MB |
+| loki single | 6.3 MB/s | 465 MB |
+| loki cluster | 9.5 MB/s at 1000 rps (3 nodes + minio) | 548 MB in minio + ~40 MB wal/index per node |
+
+Raw input is ~6.4 MB/s at 2000 rps. victorialogs writes less to disk than it receives (it
+compresses in memory before flushing), loki writes about as much as it receives in single
+mode and ~3x in cluster mode (replication_factor 3 plus wal on every node plus the chunk
+upload to minio on the same disk).
+
 ## Things that bite
 
 - **Memory limits are cgroup limits.** A backend that hits `mem_limit` gets OOM-killed and
@@ -81,3 +124,8 @@ digests its buffers and merges with no new input.
 - Loki `per_stream_rate_limit` is raised to 32MB; with the default 3MB/s a single host+service
   stream is throttled at ~1000 rps and the numbers only show the throttle.
 - ELK needs `vm.max_map_count=1048576` (ansible sets it), and the cluster template writes 2 copies.
+- **plusha's disk stalls.** One host-wide i/o stall (17:50-18:05 on 2026-09-22) took minio's
+  drive offline and froze fluent-bit on a traefik vm for 4 minutes. Check `disk busy max` and
+  the kernel log (`dmesg | grep "blocked for more"`) before trusting a step, and rerun it.
+- **Never trust "no errors" from fluent-bit alone.** Compare `fluentbit_input_records_total`
+  with traefik's request counter: the rotation loss above showed 0 errors and 0 retries.

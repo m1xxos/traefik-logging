@@ -1,6 +1,6 @@
 /var/log/traefik/*.log {
-    size 1G
-    rotate 3
+    size 2G
+    rotate 4
     missingok
     notifempty
     nocompress

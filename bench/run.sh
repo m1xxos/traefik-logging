@@ -3,6 +3,8 @@
 # pull avg CPU / max memory per backend container from vmsingle into a CSV.
 # Usage: ./bench/run.sh <backend> <mode>  |  task bench-run BACKEND=loki MODE=cluster
 # Env:   STEPS="100 500 1000 2000" STEP_MINUTES=15 WARMUP_MINUTES=5 DRAIN_MINUTES=10
+# Backfill (no load, only the disk io rows, for runs recorded before they existed):
+#        BACKFILL_START=<epoch of the run start> OUT=docs/results/<run>.csv ./bench/run.sh loki single
 
 set -euo pipefail
 
@@ -29,7 +31,8 @@ set_rate() {
 
 query() {
   # query <promql> -> prints value(s), one per line: "<label> <value>"
-  curl -fsS "${VM}/api/v1/query" --data-urlencode "query=$1" \
+  # AT (epoch) evaluates the query at that moment instead of now (backfill)
+  curl -fsS "${VM}/api/v1/query" --data-urlencode "query=$1" ${AT:+--data-urlencode "time=${AT}"} \
     | python3 -c '
 import sys, json
 for r in json.load(sys.stdin)["data"]["result"]:
@@ -40,6 +43,12 @@ for r in json.load(sys.stdin)["data"]["result"]:
 record() {
   local step="$1" window="$2"
   echo "==> Recording step ${step} rps over the last ${window}"
+  [ -n "${BACKFILL_START:-}" ] || record_base "${step}" "${window}"
+  record_io "${step}" "${window}"
+}
+
+record_base() {
+  local step="$1" window="$2"
   query "avg_over_time((sum by (name) (rate(container_cpu_usage_seconds_total{name=~\"${BACKEND_RE}\"}[1m])))[${window}:1m])" \
     | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},cpu_cores_avg,${v}"; done >> "${OUT}"
   query "max_over_time(container_memory_working_set_bytes{name=~\"${BACKEND_RE}\"}[${window}])" \
@@ -63,6 +72,39 @@ record() {
   query "sum by (instance) (delta(node_filesystem_avail_bytes{mountpoint=\"/\",instance=~\"192.168.1.6[345]:.*\"}[${window}]))" \
     | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},disk_delta_bytes,${v}"; done >> "${OUT}"
 }
+
+# disk io: what the containers write (cadvisor, cgroup io.stat) and what the
+# backend vms' disks actually see (node-exporter sda), incl. the busy fraction
+record_io() {
+  local step="$1" window="$2"
+  local disks="device=\"sda\",instance=~\"192.168.1.6[345]:.*\""
+  query "avg_over_time((sum by (name) (rate(container_fs_writes_bytes_total{name=~\"${BACKEND_RE}\"}[1m])))[${window}:1m])" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},disk_write_bytes_ps,${v}"; done >> "${OUT}"
+  query "avg_over_time((sum by (name) (rate(container_fs_reads_bytes_total{name=~\"${BACKEND_RE}\"}[1m])))[${window}:1m])" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},disk_read_bytes_ps,${v}"; done >> "${OUT}"
+  query "avg_over_time((sum(rate(container_fs_writes_bytes_total{name=~\"${BACKEND_RE}\"}[1m])))[${window}:1m])" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},backend,disk_write_bytes_ps,${v}"; done >> "${OUT}"
+  query "sum by (instance) (rate(node_disk_written_bytes_total{${disks}}[${window}]))" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},host_write_bytes_ps,${v}"; done >> "${OUT}"
+  query "sum by (instance) (rate(node_disk_read_bytes_total{${disks}}[${window}]))" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},host_read_bytes_ps,${v}"; done >> "${OUT}"
+  query "sum by (instance) (rate(node_disk_writes_completed_total{${disks}}[${window}]))" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},host_write_iops,${v}"; done >> "${OUT}"
+  query "avg by (instance) (rate(node_disk_io_time_seconds_total{${disks}}[${window}]))" \
+    | while read -r name v; do echo "${BACKEND},${MODE},${step},${name},host_disk_busy,${v}"; done >> "${OUT}"
+}
+
+if [ -n "${BACKFILL_START:-}" ]; then
+  echo "==> Backfilling disk io rows into ${OUT} for a run started at $(date -r "${BACKFILL_START}")"
+  AT=$((BACKFILL_START + WARMUP_MINUTES * 60))
+  for step in ${STEPS}; do
+    AT=$((AT + STEP_MINUTES * 60))
+    record "${step}" "$((STEP_MINUTES - SKIP_MINUTES))m"
+  done
+  AT=$((AT + DRAIN_MINUTES * 60))
+  record 0 "${DRAIN_MINUTES}m"
+  exit 0
+fi
 
 mkdir -p "$(dirname "${OUT}")"
 echo "backend,mode,rps_per_traefik,component,metric,value" > "${OUT}"
