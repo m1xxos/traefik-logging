@@ -1,5 +1,7 @@
 {
-  "index_patterns": ["logs-traefik-*"],
+  "index_patterns": [
+    "logs-traefik-*"
+  ],
   "data_stream": {},
   "priority": 500,
   "template": {
@@ -22,20 +24,116 @@
         }
       ],
       "properties": {
-        "@timestamp": { "type": "date" },
-        "Duration": { "type": "long" },
-        "Overhead": { "type": "long" },
-        "OriginDuration": { "type": "long" },
-        "DownstreamStatus": { "type": "integer" },
-        "OriginStatus": { "type": "integer" },
-        "RequestPort": { "type": "integer" },
-        "RequestCount": { "type": "long" },
-        "DownstreamContentSize": { "type": "long" },
-        "OriginContentSize": { "type": "long" },
-        "RequestContentSize": { "type": "long" },
-        "RetryAttempts": { "type": "integer" },
-        "ClientHost": { "type": "ip" },
-        "message": { "type": "text" }
+        "@timestamp": {
+          "type": "date"
+        },
+        "ClientAddr": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "ClientHost": {
+          "type": "ip"
+        },
+        "DownstreamContentSize": {
+          "type": "long"
+        },
+        "DownstreamStatus": {
+          "type": "integer"
+        },
+        "Duration": {
+          "type": "long"
+        },
+        "OriginContentSize": {
+          "type": "long"
+        },
+        "OriginDuration": {
+          "type": "long"
+        },
+        "OriginStatus": {
+          "type": "integer"
+        },
+        "Overhead": {
+          "type": "long"
+        },
+        "RequestAddr": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "RequestContentSize": {
+          "type": "long"
+        },
+        "RequestCount": {
+          "type": "long"
+        },
+        "RequestHost": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "RequestMethod": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "RequestPath": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "RequestPort": {
+          "type": "integer"
+        },
+        "RequestProtocol": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "RequestScheme": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "RetryAttempts": {
+          "type": "integer"
+        },
+        "RouterName": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "ServiceAddr": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "ServiceName": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "ServiceURL": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "TLSCipher": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "TLSVersion": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "entryPointName": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "host": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "level": {
+          "type": "keyword",
+          "ignore_above": 1024
+        },
+        "message": {
+          "type": "text"
+        },
+        "service": {
+          "type": "keyword",
+          "ignore_above": 1024
+        }
       }
     }
   }

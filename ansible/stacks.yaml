@@ -214,3 +214,58 @@
         body: "{{ lookup('file', '../stacks/' ~ stack ~ '/index-template.json') }}"
       run_once: true
       when: backend == 'elk'
+
+    # fluent-bit is already pushing while elasticsearch boots, so the first
+    # writes land before the template and auto-create a plain index with
+    # text mappings (ServiceName not aggregatable). Drop such an index; the
+    # next write creates the data stream from the template. For a plain
+    # index elasticsearch answers 200 with an empty data_streams list.
+    - name: Check whether the traefik indices are data streams
+      ansible.builtin.uri:
+        url: "http://backend-1:9200/_data_stream/{{ item }}"
+        status_code: [200, 404]
+        return_content: true
+      register: traefik_ds
+      loop:
+        - logs-traefik-access
+        - logs-traefik-internal
+      run_once: true
+      when: backend == 'elk'
+
+    - name: Delete indices auto-created before the template
+      ansible.builtin.uri:
+        url: "http://backend-1:9200/{{ item.item }}?ignore_unavailable=true"
+        method: DELETE
+      loop: "{{ traefik_ds.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+      run_once: true
+      when:
+        - backend == 'elk'
+        - (item.json.data_streams | default([])) | length == 0
+
+    - name: Wait for kibana
+      ansible.builtin.uri:
+        url: http://backend-1:5601/api/status
+      register: kibana_status
+      until: kibana_status.status == 200
+      retries: 30
+      delay: 10
+      run_once: true
+      when: backend == 'elk'
+
+    - name: Create the traefik logs data view in kibana
+      ansible.builtin.uri:
+        url: http://backend-1:5601/api/data_views/data_view
+        method: POST
+        headers:
+          kbn-xsrf: "true"
+        body_format: json
+        body:
+          override: true
+          data_view:
+            title: "logs-traefik-*"
+            name: "traefik logs"
+            timeFieldName: "@timestamp"
+      run_once: true
+      when: backend == 'elk'

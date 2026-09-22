@@ -82,7 +82,7 @@ services:
     - ./fluent-bit:/fluent-bit/etc:ro
     - /var/log/traefik:/var/log/traefik:ro
     - fluent-bit-storage:/var/lib/fluent-bit
-    mem_limit: 256m
+    mem_limit: 512m
 
 volumes:
   fluent-bit-storage:
