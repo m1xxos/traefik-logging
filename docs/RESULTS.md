@@ -17,11 +17,9 @@ comparison of durability.
 
 | backend | mode | rps/traefik | rps achieved | backend cpu cores | backend mem max | disk write | disk busy max | retries | errors | disk growth | per container (cpu / mem) |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| loki | cluster | 0 | 0 | 0.09 | 1.64 GiB | 0.3 MB/s | 72% | 0 | 0 | -4.67 GiB | loki x3 0.05 / 0.44 GiB each, loki-grafana 0.02 / 0.20 GiB, minio 0.02 / 0.20 GiB |
-| loki | cluster | 100 | 200 | 0.08 | 0.78 GiB | 1.0 MB/s | 1% | 0 | 0 | -0.00 GiB | loki x3 0.07 / 0.15 GiB each, loki-grafana 0.01 / 0.29 GiB, minio 0.00 / 0.06 GiB |
-| loki | cluster | 500 | 1000 | 0.25 | 2.80 GiB | 4.8 MB/s | 1% | 1 | 0 | 1.19 GiB | loki x3 0.24 / 1.82 GiB each, loki-grafana 0.01 / 0.36 GiB, minio 0.00 / 0.07 GiB |
-| loki | cluster | 1000 | 2000 | 0.38 | 2.91 GiB | 9.5 MB/s | 3% | 0 | 0 | 0.86 GiB | loki x3 0.36 / 0.93 GiB each, loki-grafana 0.01 / 0.20 GiB, minio 0.01 / 0.24 GiB |
-| loki | cluster | 2000 | 4006 | 0.41 | 2.33 GiB | 3.1 MB/s | 43% | 0 | 0 | 0.58 GiB | loki x3 0.38 / 0.72 GiB each, loki-grafana 0.02 / 0.20 GiB, minio 0.01 / 0.17 GiB |
+| loki | cluster | 100 | 200 | 0.08 | 0.75 GiB | 1.0 MB/s | 1% | 0 | 0 | -0.02 GiB | loki x3 0.07 / 0.16 GiB each, loki-grafana 0.01 / 0.22 GiB, minio 0.00 / 0.09 GiB |
+| loki | cluster | 500 | 1000 | 0.20 | 1.18 GiB | 4.7 MB/s | 2% | 0 | 0 | 0.80 GiB | loki x3 0.18 / 0.29 GiB each, loki-grafana 0.01 / 0.22 GiB, minio 0.00 / 0.10 GiB |
+| loki | cluster | 1000 | 1553 | 0.09 | 1.55 GiB | 1.4 MB/s | 60% | 0 | 0 | -0.27 GiB | loki x3 0.07 / 0.42 GiB each, loki-grafana 0.02 / 0.22 GiB, minio 0.00 / 0.10 GiB |
 | loki | single | 0 | 286 | 0.07 | 0.84 GiB | 0.5 MB/s | 0% | 0 | 0 | -1.75 GiB | loki 0.06 / 0.53 GiB, loki-grafana 0.02 / 0.32 GiB |
 | loki | single | 100 | 200 | 0.04 | 0.47 GiB | 0.3 MB/s | 0% | 0 | 0 | -0.01 GiB | loki 0.03 / 0.15 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 1.5 MB/s | 1% | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
@@ -82,26 +80,33 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 - `per_stream_rate_limit` raised to 32MB was needed: the api@docker stream alone is ~1.7 MB/s
   per traefik at 2000 rps, well above the 3 MB/s default with burst.
 
-### loki cluster, 2026-09-22 (2000 rps step invalid)
+### loki cluster, 2026-09-22 (two attempts, valid up to 500 rps)
 
-- Steps 100/500/1000 are fine: lines stored match lines shipped, discarded 0. Three loki at
-  0.36 cores / 0.93 GiB each at 1000 rps, replication_factor 3 means every line is written
-  three times plus wal plus minio: 9.5 MB/s of disk writes against 0.7 MB/s for the
-  victorialogs cluster at the same step.
-- The 2000 rps step ran into a host-wide i/o stall on plusha (17:50-18:05): minio took its
-  drive offline after 30s without a completed write, the kernel reported hung tasks on
-  backend-1 (minio, 122s) and on traefik-2 (fluent-bit and jbd2, 245s and 368s), disk busy
-  37-62% on every vm including control-1. Only 3.81M of 6.55M lines made it into loki.
-- Two real findings came out of it anyway:
+- First attempt: steps 100/500/1000 clean, then a host-wide i/o stall on plusha during the 2000
+  rps step (20:50-21:05 local): minio took its drive offline after 30s without a completed
+  write, the kernel reported hung tasks on backend-1 (minio, 122s) and on traefik-2
+  (fluent-bit and jbd2, 245s and 368s), disk busy 37-62% on every vm including control-1.
+  Only 3.81M of 6.55M lines made it into loki. Csv kept in `results/invalid/`.
+- Second attempt, fresh vms and the fixes below: steps 100 and 500 clean (lines read = lines
+  written, discarded 0, loki 0.18 cores / 0.29 GiB per node at 500 rps). The 1000 rps step
+  stalled the host again (20:35-20:45 local: jbd2 blocked 245s on backend-1, loki blocked on
+  backend-2/3, disk busy up to 82%, fluent-bit read 69k of 805k lines). The run was stopped
+  by hand to keep the stall away from the main cluster on the same disk.
+- The trigger is loki cluster's write amplification, not loki itself: three ingesters each
+  writing wal + chunks, plus the chunk uploads into minio on the same physical disk, is ~10
+  MB/s of writes at 1000 rps against 0.7 MB/s for the victorialogs cluster and 3.1 MB/s for
+  loki single, neither of which ever stalled plusha. **On this host loki cluster cannot be
+  measured above 500 rps per traefik.**
+- Two real findings came out of the first attempt anyway:
   1. **fluent-bit + logrotate lose data when the backend is slow.** Push latency went to
      1.9s p99, fluent-bit paused the tail on backpressure, logrotate renamed the file, and
      after `Rotate_Wait 30` the unread tail was dropped: no error, no retry, no dropped-records
      metric, just 86% of the step gone. Now `Rotate_Wait 600` and logrotate `size 2G rotate 4`.
   2. **A grafana explore query can oom an ingester.** loki on backend-1 (limit 1536m) was
-     oom-killed at 17:26 while serving `sum(count_over_time({...}[2s])) by (detected_level)`
-     (the explore log-volume histogram). Now `querier.max_concurrent 2`,
-     `max_query_parallelism 4`, and node 1 has 1792m for loki (grafana 448m, minio 512m).
-- This run needs to be repeated for a clean 2000 rps number.
+     oom-killed while serving `sum(count_over_time({...}[2s])) by (detected_level)` (the
+     explore log-volume histogram). Now `querier.max_concurrent 2`, `max_query_parallelism 4`,
+     and node 1 has 1792m for loki (grafana 448m, minio 512m). With nobody querying, the
+     second attempt stayed at 0.29 GiB per node at 500 rps against 1.82 GiB the first time.
 
 ## Disk
 
@@ -124,8 +129,9 @@ upload to minio on the same disk).
 - Loki `per_stream_rate_limit` is raised to 32MB; with the default 3MB/s a single host+service
   stream is throttled at ~1000 rps and the numbers only show the throttle.
 - ELK needs `vm.max_map_count=1048576` (ansible sets it), and the cluster template writes 2 copies.
-- **plusha's disk stalls.** One host-wide i/o stall (17:50-18:05 on 2026-09-22) took minio's
-  drive offline and froze fluent-bit on a traefik vm for 4 minutes. Check `disk busy max` and
+- **plusha's disk stalls.** Two host-wide i/o stalls on 2026-09-22, both under loki cluster
+  (~10 MB/s of writes spread over three vms plus minio): minio's drive went offline, jbd2 and
+  fluent-bit hung for minutes on unrelated vms. Check `disk busy max` and
   the kernel log (`dmesg | grep "blocked for more"`) before trusting a step, and rerun it.
 - **Never trust "no errors" from fluent-bit alone.** Compare `fluentbit_input_records_total`
   with traefik's request counter: the rotation loss above showed 0 errors and 0 retries.
