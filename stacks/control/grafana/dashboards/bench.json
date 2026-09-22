@@ -16,10 +16,10 @@
         "label": "backend containers",
         "type": "textbox",
         "current": {
-          "text": "victorialogs|vlstorage|vlinsert|vlselect|loki|minio|elasticsearch|kibana|openobserve|nats|postgres",
-          "value": "victorialogs|vlstorage|vlinsert|vlselect|loki|minio|elasticsearch|kibana|openobserve|nats|postgres"
+          "text": "victorialogs|vlstorage|vlinsert|vlselect|loki|loki-grafana|minio|elasticsearch|kibana|openobserve|nats|postgres",
+          "value": "victorialogs|vlstorage|vlinsert|vlselect|loki|loki-grafana|minio|elasticsearch|kibana|openobserve|nats|postgres"
         },
-        "query": "victorialogs|vlstorage|vlinsert|vlselect|loki|minio|elasticsearch|kibana|openobserve|nats|postgres"
+        "query": "victorialogs|vlstorage|vlinsert|vlselect|loki|loki-grafana|minio|elasticsearch|kibana|openobserve|nats|postgres"
       }
     ]
   },

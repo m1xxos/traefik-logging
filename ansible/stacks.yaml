@@ -150,7 +150,7 @@
     # process gets less than the 2048m the other two nodes give theirs
     node1_main_mem:
       victorialogs: 1280m
-      loki: 1792m
+      loki: 1536m
       elk: 1792m
       openobserve: 1280m
   tasks:

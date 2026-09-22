@@ -5,7 +5,7 @@ _Last updated: 2026-09-22_
 Backend vms get 9 GiB in both modes (single: 1 x 9 GiB, cluster: 3.5 + 2.75 + 2.75). Numbers are
 per step (rps per traefik, two traefiks, so lines/s is double), measured over minutes 2-15 of a
 15 minute step. `backend` rows sum every container of the stack, including minio / nats /
-postgres / kibana where the stack has them.
+postgres / kibana where the stack has them, and grafana for loki (it has no ui of its own).
 
 Traffic is the weighted mix from `loadgen/gen-targets.py` (api/shop/auth/static by Host, dead
 legacy backend, unknown host, ~2.5% 5xx, ~6% 4xx, 1% slow, 15% POST); with `headers: keep` an

@@ -18,7 +18,7 @@ DRAIN_MINUTES="${DRAIN_MINUTES:-10}"
 # first two minutes of every step are settling time, not measured
 SKIP_MINUTES=2
 OUT="${OUT:-docs/results/${BACKEND}-${MODE}-$(date +%Y%m%d-%H%M).csv}"
-BACKEND_RE='victorialogs|vlstorage|vlinsert|vlselect|loki|minio|elasticsearch|kibana|openobserve|nats|postgres'
+BACKEND_RE='victorialogs|vlstorage|vlinsert|vlselect|loki|loki-grafana|minio|elasticsearch|kibana|openobserve|nats|postgres'
 
 set_rate() {
   local rate="$1"

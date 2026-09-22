@@ -16,6 +16,29 @@ services:
     - loki:/loki
     mem_limit: ${MAIN_MEM:-2048m}
 
+  # loki has no ui of its own, so grafana is part of the stack and of its
+  # cpu/memory numbers, the same way kibana is for elk
+  grafana:
+    image: grafana/grafana:13.2.2
+    container_name: loki-grafana
+    restart: unless-stopped
+    network_mode: host
+    profiles:
+    - node1
+    environment:
+      GF_SERVER_HTTP_PORT: "3000"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+    volumes:
+    - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    - grafana:/var/lib/grafana
+    depends_on:
+    - loki
+    mem_limit: 512m
+
   minio:
     image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
     container_name: minio
@@ -55,4 +78,5 @@ services:
 
 volumes:
   loki:
+  grafana:
   minio:

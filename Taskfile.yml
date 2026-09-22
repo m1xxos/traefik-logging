@@ -2,6 +2,11 @@
 
 version: '3'
 
+# ad-hoc ansible and ansible-playbook run from the repo root, so point them
+# at the config (remote user, no host key checks for the throwaway vms)
+env:
+  ANSIBLE_CONFIG: ansible/ansible.cfg
+
 vars:
   BACKEND: '{{.BACKEND | default "none"}}'
   MODE: '{{.MODE | default "single"}}'
