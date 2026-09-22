@@ -43,7 +43,8 @@ tasks:
   backend-reset:
     desc: "Wipe the backend's data volumes and start it again, for a clean run without recreating the VMs"
     cmds:
-    - ansible -i ansible/inventory.yaml backend -b -m community.docker.docker_compose_v2 -a "project_src=/opt/stacks/backend state=absent remove_volumes=true"
+    # profiles=node1 so the once-per-cluster containers on backend-1 go too
+    - ansible -i ansible/inventory.yaml backend -b -m community.docker.docker_compose_v2 -a "project_src=/opt/stacks/backend state=absent remove_volumes=true profiles=node1"
     - task: deploy
 
   summarize:

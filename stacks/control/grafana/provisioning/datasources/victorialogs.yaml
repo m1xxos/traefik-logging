@@ -1,11 +1,12 @@
 apiVersion: 1
 
 # Only answers while backend=victorialogs is up; the plugin is installed via
-# GF_INSTALL_PLUGINS in compose.yaml.
+# GF_INSTALL_PLUGINS in compose.yaml. VL_URL comes from .env (ansible, an ip: containers do not see the host /etc/hosts): single
+# mode is victoria-logs on 9428, cluster mode is vlselect on 9471.
 datasources:
 - name: VictoriaLogs
   uid: VictoriaLogs
   type: victoriametrics-logs-datasource
   access: proxy
-  url: http://192.168.1.63:9428
+  url: $VL_URL
   editable: false

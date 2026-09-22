@@ -17,7 +17,7 @@ locals {
       vm_id  = 601
       ip     = "192.168.1.61"
       cores  = 4
-      memory = 2048
+      memory = 8192
       disk   = 30
     }
     traefik-2 = {
@@ -25,7 +25,7 @@ locals {
       vm_id  = 602
       ip     = "192.168.1.62"
       cores  = 4
-      memory = 2048
+      memory = 8192
       disk   = 30
     }
   }
