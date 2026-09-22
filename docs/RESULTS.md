@@ -1,6 +1,6 @@
 # Results
 
-_Last updated: 2026-09-21_
+_Last updated: 2026-09-22_
 
 Backend vms get 9 GiB in both modes (single: 1 x 9 GiB, cluster: 3.5 + 2.75 + 2.75). Numbers are
 per step (rps per traefik, two traefiks, so lines/s is double), measured over minutes 2-15 of a
@@ -17,6 +17,11 @@ comparison of durability.
 
 | backend | mode | rps/traefik | rps achieved | backend cpu cores | backend mem max | retries | errors | disk growth | per container (cpu / mem) |
 |---|---|---|---|---|---|---|---|---|---|
+| victorialogs | cluster | 0 | 386 | 0.04 | 0.58 GiB | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.03 / 0.18 GiB each |
+| victorialogs | cluster | 100 | 200 | 0.04 | 0.37 GiB | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.02 GiB, vlselect 0.00 / 0.03 GiB, vlstorage x3 0.03 / 0.12 GiB each |
+| victorialogs | cluster | 500 | 1000 | 0.09 | 0.45 GiB | 0 | 0 | 0.03 GiB | vlinsert 0.02 / 0.04 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.07 / 0.15 GiB each |
+| victorialogs | cluster | 1000 | 2000 | 0.15 | 0.60 GiB | 0 | 0 | 0.07 GiB | vlinsert 0.04 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.11 / 0.19 GiB each |
+| victorialogs | cluster | 2000 | 4000 | 0.30 | 0.65 GiB | 0 | 0 | 0.14 GiB | vlinsert 0.10 / 0.11 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.20 / 0.21 GiB each |
 | victorialogs | single | 0 | 371 | 0.05 | 0.28 GiB | 0 | 0 | 0.01 GiB | victorialogs 0.05 / 0.28 GiB |
 | victorialogs | single | 100 | 200 | 0.02 | 0.21 GiB | 0 | 0 | 0.01 GiB | victorialogs 0.02 / 0.21 GiB |
 | victorialogs | single | 500 | 1000 | 0.10 | 0.24 GiB | 0 | 0 | 0.03 GiB | victorialogs 0.10 / 0.24 GiB |
@@ -37,6 +42,19 @@ digests its buffers and merges with no new input.
 - At 2000 rps per traefik the traefik VMs sit at 70% cpu (traefik 0.9 cores, fluent-bit 0.45
   cores each) and loadgen at 0.75 cores. The backends are nowhere near the limit at this rate;
   the stand would need bigger traefik VMs to push further.
+
+### victorialogs cluster, 2026-09-22
+
+- 6 551 147 access lines stored for 6 553 620 shipped; the 2.5k difference is the smoke test
+  before the wipe. No loss, no retries.
+- vlinsert shards evenly: 2 185 195 / 2 184 653 / 2 181 299 lines, ~102 MB per node, 307 MB in
+  total (single node run: 286 MB). One copy of every line; losing a node loses a third of the
+  data and makes queries fail with 502 until it is back.
+- Cluster total is about the same cpu as single (0.30 vs 0.35 cores at 2000 rps) and roughly
+  twice the memory (0.65 vs 0.36 GiB), the price of three storage processes plus vlinsert.
+  vlselect idles without queries.
+- Traefik VMs were 8 GiB for this run (2 GiB for the single run); traefik and fluent-bit never
+  used more than ~200 MiB together, so it changes nothing in the numbers.
 
 ## Things that bite
 

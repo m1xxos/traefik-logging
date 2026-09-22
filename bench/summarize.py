@@ -28,7 +28,14 @@ for f in files:
             elif metric == "disk_delta_bytes":
                 rows[key]["disk"] = rows[key].get("disk", 0) + value
             elif metric in ("cpu_cores_avg", "mem_ws_max_bytes"):
-                containers[key].setdefault(comp, {})[metric] = value
+                # cluster stacks run the same container name on several vms:
+                # cpu arrives already summed by name, memory as one row per vm
+                c = containers[key].setdefault(comp, {"n": 0})
+                if metric == "mem_ws_max_bytes":
+                    c["n"] += 1
+                    c[metric] = max(c.get(metric, 0), value)
+                else:
+                    c[metric] = value
 
 
 def gib(b):
@@ -40,7 +47,8 @@ print("|---|---|---|---|---|---|---|---|---|---|")
 for key in sorted(rows):
     r = rows[key]
     per = ", ".join(
-        f"{n} {v.get('cpu_cores_avg', 0):.2f} / {gib(v.get('mem_ws_max_bytes', 0))}"
+        f"{n}{' x' + str(v['n']) if v['n'] > 1 else ''} {v.get('cpu_cores_avg', 0):.2f} / {gib(v.get('mem_ws_max_bytes', 0))}"
+        + (" each" if v["n"] > 1 else "")
         for n, v in sorted(containers[key].items())
     )
     print(
