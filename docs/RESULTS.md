@@ -1,6 +1,6 @@
 # Results
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 Backend vms get 9 GiB in both modes (single: 1 x 9 GiB, cluster: 3.5 + 2.75 + 2.75). Numbers are
 per step (rps per traefik, two traefiks, so lines/s is double), measured over minutes 2-15 of a
@@ -17,6 +17,11 @@ comparison of durability.
 
 | backend | mode | rps/traefik | rps achieved | backend cpu cores | backend mem max | disk write | disk busy max | retries | errors | disk growth | per container (cpu / mem) |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| elk | single | 0 | 0 | 0.28 | 5.45 GiB | 4.3 MB/s | 17% | 0 | 0 | -1.19 GiB | elasticsearch 0.25 / 4.40 GiB, kibana 0.02 / 1.05 GiB |
+| elk | single | 100 | 200 | 0.10 | 5.28 GiB | 0.7 MB/s | 11% | 0 | 0 | 0.02 GiB | elasticsearch 0.08 / 4.23 GiB, kibana 0.02 / 1.05 GiB |
+| elk | single | 500 | 1000 | 0.19 | 5.29 GiB | 2.1 MB/s | 26% | 0 | 0 | 0.16 GiB | elasticsearch 0.17 / 4.24 GiB, kibana 0.02 / 1.05 GiB |
+| elk | single | 1000 | 2000 | 0.27 | 5.34 GiB | 4.7 MB/s | 45% | 0 | 0 | 0.30 GiB | elasticsearch 0.31 / 4.29 GiB, kibana 0.01 / 1.05 GiB |
+| elk | single | 2000 | 2951 | 0.37 | 5.46 GiB | 4.9 MB/s | 51% | 0 | 0 | 1.12 GiB | elasticsearch 0.36 / 4.41 GiB, kibana 0.01 / 1.05 GiB |
 | loki | cluster | 100 | 200 | 0.08 | 0.75 GiB | 1.0 MB/s | 1% | 0 | 0 | -0.02 GiB | loki x3 0.07 / 0.16 GiB each, loki-grafana 0.01 / 0.22 GiB, minio 0.00 / 0.09 GiB |
 | loki | cluster | 500 | 1000 | 0.20 | 1.18 GiB | 4.7 MB/s | 2% | 0 | 0 | 0.80 GiB | loki x3 0.18 / 0.29 GiB each, loki-grafana 0.01 / 0.22 GiB, minio 0.00 / 0.10 GiB |
 | loki | cluster | 1000 | 1553 | 0.09 | 1.55 GiB | 1.4 MB/s | 60% | 0 | 0 | -0.27 GiB | loki x3 0.07 / 0.42 GiB each, loki-grafana 0.02 / 0.22 GiB, minio 0.00 / 0.10 GiB |
@@ -108,6 +113,25 @@ PromQL, evaluated at the original step windows), so they are as good as the live
      and node 1 has 1792m for loki (grafana 448m, minio 512m). With nobody querying, the
      second attempt stayed at 0.29 GiB per node at 500 rps against 1.82 GiB the first time.
 
+### elk single, 2026-09-23 (2000 rps step cut to 11 minutes)
+
+- 5 532 788 access lines stored = lines read = lines shipped; no loss, retries 0. The total is
+  below the usual 6.55M because the 2000 rps step was stopped by hand after 11 minutes.
+- Memory is a flat ~5.3 GiB whatever the load: `-Xms3g -Xmx3g` is allocated up front (4.2 GiB
+  rss with off-heap), kibana is another 1.05 GiB idle. That is the price of the jvm and the
+  ui, not of the log volume; the victorialogs/loki numbers grow with load, elk's do not.
+- CPU is modest (0.36 cores at the top step) because elasticsearch never got to use it: the
+  step is disk-bound. At 2000 rps per traefik it indexed ~1800 lines/s of the 4000 offered,
+  fluent-bit filled its 64-chunk buffer and paused the tail, elasticsearch logged
+  `writing cluster state took [15694ms]`, `health check of [data] took [11406ms]` and one
+  118s stall. The load was stopped early to keep plusha out of a host-wide stall (disk busy
+  had reached 76% on backend-1 and 48% on the idle control-1); the buffer then drained
+  completely at ~2400 lines/s, so nothing was lost.
+- 897 MB on disk for 5.53M lines (~160 B/line): 3.7x victorialogs, 2.3x loki. Every string is
+  keyword-indexed plus `_source`, so this is close to the raw size.
+- **On this host elk single tops out around 1800 lines/s; the cluster mode (2 copies plus
+  translog on three vms) would stall the disk the way loki cluster did.**
+
 ## Disk
 
 | run | disk write at 2000 rps | on disk after 6.55M lines |
@@ -116,6 +140,7 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 | victorialogs cluster | 0.9 MB/s (3 nodes) | 307 MB |
 | loki single | 6.3 MB/s | 465 MB |
 | loki cluster | 9.5 MB/s at 1000 rps (3 nodes + minio) | 548 MB in minio + ~40 MB wal/index per node |
+| elk single | 4.9 MB/s (disk-bound, ~1800 lines/s indexed) | 897 MB after 5.53M lines |
 
 Raw input is ~6.4 MB/s at 2000 rps. victorialogs writes less to disk than it receives (it
 compresses in memory before flushing), loki writes about as much as it receives in single
