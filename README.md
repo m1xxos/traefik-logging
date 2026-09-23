@@ -7,7 +7,9 @@ and openobserve, each as a single node and as a 3 node cluster.
 * `terraform/` creates the vms on plusha (control-1, traefik-1, traefik-2, backend-1..3), same
   infisical creds and yandex state bucket as homelab: copy `yc.auto.tfvars` and
   `proxmox.auto.tfvars` from `homelab/terraform/0-infra`
-* `ansible/` installs docker and deploys `stacks/` with compose
+* `ansible/` installs docker and deploys `stacks/` with compose. the one password in the repo
+  (`BENCH_PASSWORD`, minio/postgres/openobserve root) is a throwaway for lan-only vms that are
+  recreated every run
 * `loadgen/` is the rps page on the control vm, `bench/run.sh` drives it and collects a csv.
   traffic is a weighted mix from `loadgen/gen-targets.py`: four services by Host (api, shop,
   auth, static), a dead `legacy` backend for 502s, an unknown host for 404s, ~2.5% 5xx, ~6% 4xx,
