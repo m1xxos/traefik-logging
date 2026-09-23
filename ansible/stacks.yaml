@@ -162,6 +162,7 @@
 
     # Bench-only credentials: the VMs are recreated for every run, so a
     # fixed password is fine and keeps the fluent-bit outputs static.
+    # openobserve 1.0 refuses a root password without upper/lower/digit/special.
     - name: Write backend stack env
       ansible.builtin.copy:
         dest: /opt/stacks/backend/.env
@@ -170,7 +171,7 @@
           NODE_INDEX={{ node_index }}
           NODE_IP={{ ansible_host }}
           MAIN_MEM={{ node1_main_mem[backend] if node_index == 1 else '2048m' }}
-          BENCH_PASSWORD=traefik-logging
+          BENCH_PASSWORD=Bench-Traefik-2026!
 
     # the node1 profile holds the containers that exist once per cluster
     # (kibana, minio, nats, postgres, vlinsert, vlselect)

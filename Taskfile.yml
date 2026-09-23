@@ -41,7 +41,9 @@ tasks:
     - task: deploy
 
   bench-run:
-    desc: "Run the RPS steps and collect a CSV. Usage: task bench-run BACKEND=loki MODE=cluster"
+    desc: "Run the RPS steps and collect a CSV. Usage: task bench-run BACKEND=loki MODE=cluster [STEPS='100 500']"
+    env:
+      STEPS: '{{.STEPS | default "100 500 1000 2000"}}'
     cmds:
     - ./bench/run.sh {{.BACKEND}} {{.MODE}}
 
