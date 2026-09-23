@@ -133,5 +133,9 @@ upload to minio on the same disk).
   (~10 MB/s of writes spread over three vms plus minio): minio's drive went offline, jbd2 and
   fluent-bit hung for minutes on unrelated vms. Check `disk busy max` and
   the kernel log (`dmesg | grep "blocked for more"`) before trusting a step, and rerun it.
+- **After a host reboot run `task deploy`.** All vms come back (`on_boot`), but traefik did not
+  on either traefik vm after plusha was powered off on 2026-09-22 (exit 137 during the docker
+  shutdown, the other containers restarted fine). The bench then ran against nothing for 20
+  minutes: fluent-bit healthy, elasticsearch healthy, zero lines.
 - **Never trust "no errors" from fluent-bit alone.** Compare `fluentbit_input_records_total`
   with traefik's request counter: the rotation loss above showed 0 errors and 0 retries.
