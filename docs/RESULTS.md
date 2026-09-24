@@ -30,8 +30,11 @@ comparison of durability.
 | loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 1.5 MB/s | 1% | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 1000 | 2000 | 0.21 | 0.77 GiB | 3.1 MB/s | 1% | 0 | 0 | 0.24 GiB | loki 0.20 / 0.45 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 2000 | 4000 | 0.54 | 0.89 GiB | 6.3 MB/s | 2% | 0 | 0 | 0.52 GiB | loki 0.52 / 0.57 GiB, loki-grafana 0.01 / 0.32 GiB |
-| openobserve | single | 100 | 200 | 0.02 | 0.58 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.04 GiB | openobserve 0.02 / 0.58 GiB |
-| openobserve | single | 500 | 1000 | 0.07 | 0.85 GiB | 0.6 MB/s | 1% | 0 | 0 | 0.04 GiB | openobserve 0.07 / 0.85 GiB |
+| openobserve | single | 0 | 0 | 0.00 | 0.44 GiB | 0.0 MB/s | 1% | 0 | 0 | 0.00 GiB | openobserve 0.00 / 0.44 GiB |
+| openobserve | single | 100 | 200 | 0.02 | 0.55 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.01 GiB | openobserve 0.02 / 0.55 GiB |
+| openobserve | single | 500 | 1000 | 0.07 | 0.83 GiB | 0.2 MB/s | 0% | 0 | 0 | 0.04 GiB | openobserve 0.07 / 0.83 GiB |
+| openobserve | single | 1000 | 2000 | 0.14 | 0.85 GiB | 0.5 MB/s | 0% | 0 | 0 | 0.10 GiB | openobserve 0.14 / 0.85 GiB |
+| openobserve | single | 2000 | 3972 | 0.39 | 1.10 GiB | 0.9 MB/s | 18% | 0 | 0 | 0.28 GiB | openobserve 0.39 / 1.10 GiB |
 | victorialogs | cluster | 0 | 386 | 0.04 | 0.58 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.03 / 0.18 GiB each |
 | victorialogs | cluster | 100 | 200 | 0.04 | 0.37 GiB | 0.8 MB/s | 1% | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.02 GiB, vlselect 0.00 / 0.03 GiB, vlstorage x3 0.03 / 0.12 GiB each |
 | victorialogs | cluster | 500 | 1000 | 0.09 | 0.45 GiB | 0.6 MB/s | 1% | 0 | 0 | 0.03 GiB | vlinsert 0.02 / 0.04 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.07 / 0.15 GiB each |
@@ -134,26 +137,20 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 - **On this host elk single tops out around 1800 lines/s; the cluster mode (2 copies plus
   translog on three vms) would stall the disk the way loki cluster did.**
 
-### openobserve single, 2026-09-24 (valid up to 500 rps, host stall at 1000)
+### openobserve single, 2026-09-24 (full run after the host fix)
 
-- Steps 100 and 500 clean: lines read = lines written, retries 0. 0.02 cores / 0.58 GiB at 100
-  rps, 0.07 cores / 0.85 GiB at 500; at 1000 rps it was running at 0.19 cores / 0.83 GiB and
-  writing 0.4 MB/s when the host stalled. Fields are lowercased on ingest (`servicename`,
-  `downstreamstatus`), grouping is plain SQL in its own ui.
-- **The stall had nothing to do with the backend this time.** openobserve wrote 0.4 MB/s, yet
-  vmsingle on control-1 hung (`victoria-metric blocked for more than 122 seconds`), fluent-bit
-  and journald hung on traefik-1, vmsingle answered 429 after 10s. Same signature as the two
-  loki-cluster stalls, at a fraction of the write load. The main cluster on plusha is powered
-  off, so it is not longhorn rebuilding, and the nvme itself turned out to be fine: it is
-  host swap, see "Things that bite". At the 1000 rps step
-  traefik-1 wrote 8.9 MB/s on 21-22.09 with its disk 13-19% busy; on 23.09 it wrote 3.1 MB/s
-  with the disk 33% busy and idle control-1 at 57%; on 24.09 the host stalled at ~1.5 MB/s.
-  Same vms, same load, 3-6x less written, 2-4x busier: the change is on the host, and it is
-  the traefik vms going from 2 to 8 GiB on the evening of 22.09.
+- First attempt hit the host swap at 1000 rps (csv in `results/invalid/`). Rerun after the vm
+  resize: all four steps clean, lines read = lines shipped, retries 0, host swap flat.
+- 0.39 cores / 1.10 GiB at 2000 rps per traefik: cpu on par with victorialogs (0.35), memory
+  three times victorialogs (0.36) but a fifth of elk. Fields are lowercased on ingest
+  (`servicename`, `downstreamstatus`), grouping is plain SQL in its own ui.
+- Storage: 15.7 GB of raw json became 339 MB of parquet (46x), 760 MB on disk with the wal and
+  cache directories, for 10.1M lines. Per line that is between victorialogs and loki.
 - Side finding: the go-httpbin/whoami containers behind traefik log every request to stdout
   and docker's json-file driver wrote 3.7 MB/s per traefik vm on top of the 1.9 MB/s access
   log (3.5 GB of json for `api` after two days). Now `logging: driver: none` for them.
-- The run should be repeated for the 1000/2000 numbers once the host is stable.
+- With traefik vms at 3 GiB and `cache=none` the two traefiks held exactly 2000 rps each for
+  the first time (3972 achieved); before, with writeback, they peaked at ~1900.
 
 ## Disk
 
@@ -164,6 +161,7 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 | loki single | 6.3 MB/s | 465 MB |
 | loki cluster | 9.5 MB/s at 1000 rps (3 nodes + minio) | 548 MB in minio + ~40 MB wal/index per node |
 | elk single | 4.9 MB/s (disk-bound, ~1800 lines/s indexed) | 897 MB after 5.53M lines |
+| openobserve single | 0.9 MB/s | 760 MB after 10.1M lines (339 MB parquet + wal/cache) |
 
 Raw input is ~6.4 MB/s at 2000 rps. victorialogs writes less to disk than it receives (it
 compresses in memory before flushing), loki writes about as much as it receives in single

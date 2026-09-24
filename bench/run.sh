@@ -42,7 +42,7 @@ for r in json.load(sys.stdin)["data"]["result"]:
 
 record() {
   local step="$1" window="$2"
-  echo "==> Recording step ${step} rps over the last ${window}"
+  echo "==> $(date +%H:%M:%S) Recording step ${step} rps over the last ${window}"
   [ -n "${BACKFILL_START:-}" ] || record_base "${step}" "${window}"
   record_io "${step}" "${window}"
 }
@@ -109,20 +109,20 @@ fi
 mkdir -p "$(dirname "${OUT}")"
 echo "backend,mode,rps_per_traefik,component,metric,value" > "${OUT}"
 
-echo "==> ${BACKEND}/${MODE}: warmup ${WARMUP_MINUTES}m at 100 rps"
+echo "==> $(date +%H:%M:%S) ${BACKEND}/${MODE}: warmup ${WARMUP_MINUTES}m at 100 rps"
 set_rate 100
 sleep "$((WARMUP_MINUTES * 60))"
 
 for step in ${STEPS}; do
-  echo "==> ${step} rps per traefik for ${STEP_MINUTES}m"
+  echo "==> $(date +%H:%M:%S) ${step} rps per traefik for ${STEP_MINUTES}m"
   set_rate "${step}"
   sleep "$((STEP_MINUTES * 60))"
   record "${step}" "$((STEP_MINUTES - SKIP_MINUTES))m"
 done
 
-echo "==> Drain ${DRAIN_MINUTES}m"
+echo "==> $(date +%H:%M:%S) Drain ${DRAIN_MINUTES}m"
 set_rate 0
 sleep "$((DRAIN_MINUTES * 60))"
 record 0 "${DRAIN_MINUTES}m"
 
-echo "==> Done: ${OUT}"
+echo "==> $(date +%H:%M:%S) Done: ${OUT}"
