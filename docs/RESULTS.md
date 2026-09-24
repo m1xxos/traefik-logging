@@ -143,11 +143,14 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 - **The stall had nothing to do with the backend this time.** openobserve wrote 0.4 MB/s, yet
   vmsingle on control-1 hung (`victoria-metric blocked for more than 122 seconds`), fluent-bit
   and journald hung on traefik-1, vmsingle answered 429 after 10s. Same signature as the two
-  loki-cluster stalls, at a fraction of the write load. Either plusha's disk is degrading, or
-  something else on the host is eating i/o (longhorn rebuilding replicas after the two
-  power-offs on 22/23.09 would do exactly this). Check on the host before any further run:
-  `iostat -x 5`, `smartctl -a` on the pve-nvme device, longhorn volume health in the main
-  cluster.
+  loki-cluster stalls, at a fraction of the write load. The main cluster on plusha is powered
+  off, so it is not longhorn rebuilding: the disk itself got slow. At the 1000 rps step
+  traefik-1 wrote 8.9 MB/s on 21-22.09 with its disk 13-19% busy; on 23.09 it wrote 3.1 MB/s
+  with the disk 33% busy and idle control-1 at 57%; on 24.09 the host stalled at ~1.5 MB/s.
+  Same vms, same load, 3-6x less written, 2-4x busier: the change is on the host, after the
+  power cycles of 22/23.09. Check there before any further run: `iostat -x 5`,
+  `smartctl -a` / `nvme smart-log` on the pve-nvme device (wear, media errors, thermal
+  throttling), host `dmesg` for nvme resets, thin pool metadata usage (`lvs -a`).
 - Side finding: the go-httpbin/whoami containers behind traefik log every request to stdout
   and docker's json-file driver wrote 3.7 MB/s per traefik vm on top of the 1.9 MB/s access
   log (3.5 GB of json for `api` after two days). Now `logging: driver: none` for them.
