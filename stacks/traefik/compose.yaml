@@ -22,11 +22,15 @@ services:
   # Four "services" behind the same traefik so the access log looks like a
   # real edge: routing by Host, different paths and methods, a share of 4xx
   # and 5xx, a few slow responses. go-httpbin answers whatever status or delay
-  # the path asks for, whoami is the plain static service.
+  # the path asks for, whoami is the plain static service. Their stdout is
+  # a request log too; with the json-file driver that was 3.7 MB/s more disk
+  # writes per traefik vm than the access log itself, so it is dropped.
   api:
     image: mccutchen/go-httpbin:2.25.0
     container_name: api
     restart: unless-stopped
+    logging:
+      driver: none
     mem_limit: 128m
     labels:
     - "traefik.enable=true"
@@ -39,6 +43,8 @@ services:
     image: mccutchen/go-httpbin:2.25.0
     container_name: shop
     restart: unless-stopped
+    logging:
+      driver: none
     mem_limit: 128m
     labels:
     - "traefik.enable=true"
@@ -51,6 +57,8 @@ services:
     image: mccutchen/go-httpbin:2.25.0
     container_name: auth
     restart: unless-stopped
+    logging:
+      driver: none
     mem_limit: 128m
     labels:
     - "traefik.enable=true"
@@ -63,6 +71,8 @@ services:
     image: traefik/whoami:v1.12.0
     container_name: static
     restart: unless-stopped
+    logging:
+      driver: none
     mem_limit: 64m
     labels:
     - "traefik.enable=true"

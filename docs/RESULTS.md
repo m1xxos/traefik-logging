@@ -1,6 +1,6 @@
 # Results
 
-_Last updated: 2026-09-23_
+_Last updated: 2026-09-24_
 
 Backend vms get 9 GiB in both modes (single: 1 x 9 GiB, cluster: 3.5 + 2.75 + 2.75). Numbers are
 per step (rps per traefik, two traefiks, so lines/s is double), measured over minutes 2-15 of a
@@ -30,6 +30,8 @@ comparison of durability.
 | loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 1.5 MB/s | 1% | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 1000 | 2000 | 0.21 | 0.77 GiB | 3.1 MB/s | 1% | 0 | 0 | 0.24 GiB | loki 0.20 / 0.45 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 2000 | 4000 | 0.54 | 0.89 GiB | 6.3 MB/s | 2% | 0 | 0 | 0.52 GiB | loki 0.52 / 0.57 GiB, loki-grafana 0.01 / 0.32 GiB |
+| openobserve | single | 100 | 200 | 0.02 | 0.58 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.04 GiB | openobserve 0.02 / 0.58 GiB |
+| openobserve | single | 500 | 1000 | 0.07 | 0.85 GiB | 0.6 MB/s | 1% | 0 | 0 | 0.04 GiB | openobserve 0.07 / 0.85 GiB |
 | victorialogs | cluster | 0 | 386 | 0.04 | 0.58 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.08 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.03 / 0.18 GiB each |
 | victorialogs | cluster | 100 | 200 | 0.04 | 0.37 GiB | 0.8 MB/s | 1% | 0 | 0 | 0.01 GiB | vlinsert 0.01 / 0.02 GiB, vlselect 0.00 / 0.03 GiB, vlstorage x3 0.03 / 0.12 GiB each |
 | victorialogs | cluster | 500 | 1000 | 0.09 | 0.45 GiB | 0.6 MB/s | 1% | 0 | 0 | 0.03 GiB | vlinsert 0.02 / 0.04 GiB, vlselect 0.00 / 0.01 GiB, vlstorage x3 0.07 / 0.15 GiB each |
@@ -132,6 +134,25 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 - **On this host elk single tops out around 1800 lines/s; the cluster mode (2 copies plus
   translog on three vms) would stall the disk the way loki cluster did.**
 
+### openobserve single, 2026-09-24 (valid up to 500 rps, host stall at 1000)
+
+- Steps 100 and 500 clean: lines read = lines written, retries 0. 0.02 cores / 0.58 GiB at 100
+  rps, 0.07 cores / 0.85 GiB at 500; at 1000 rps it was running at 0.19 cores / 0.83 GiB and
+  writing 0.4 MB/s when the host stalled. Fields are lowercased on ingest (`servicename`,
+  `downstreamstatus`), grouping is plain SQL in its own ui.
+- **The stall had nothing to do with the backend this time.** openobserve wrote 0.4 MB/s, yet
+  vmsingle on control-1 hung (`victoria-metric blocked for more than 122 seconds`), fluent-bit
+  and journald hung on traefik-1, vmsingle answered 429 after 10s. Same signature as the two
+  loki-cluster stalls, at a fraction of the write load. Either plusha's disk is degrading, or
+  something else on the host is eating i/o (longhorn rebuilding replicas after the two
+  power-offs on 22/23.09 would do exactly this). Check on the host before any further run:
+  `iostat -x 5`, `smartctl -a` on the pve-nvme device, longhorn volume health in the main
+  cluster.
+- Side finding: the go-httpbin/whoami containers behind traefik log every request to stdout
+  and docker's json-file driver wrote 3.7 MB/s per traefik vm on top of the 1.9 MB/s access
+  log (3.5 GB of json for `api` after two days). Now `logging: driver: none` for them.
+- The run should be repeated for the 1000/2000 numbers once the host is stable.
+
 ## Disk
 
 | run | disk write at 2000 rps | on disk after 6.55M lines |
@@ -154,9 +175,10 @@ upload to minio on the same disk).
 - Loki `per_stream_rate_limit` is raised to 32MB; with the default 3MB/s a single host+service
   stream is throttled at ~1000 rps and the numbers only show the throttle.
 - ELK needs `vm.max_map_count=1048576` (ansible sets it), and the cluster template writes 2 copies.
-- **plusha's disk stalls.** Two host-wide i/o stalls on 2026-09-22, both under loki cluster
-  (~10 MB/s of writes spread over three vms plus minio): minio's drive went offline, jbd2 and
-  fluent-bit hung for minutes on unrelated vms. Check `disk busy max` and
+- **plusha's disk stalls.** Host-wide i/o stalls on 2026-09-22 (twice, under loki cluster at
+  ~10 MB/s), 2026-09-23 (elk single at 5 MB/s, load stopped early) and 2026-09-24 (openobserve
+  single at 0.4 MB/s). The write load of the backend stopped explaining it on the third day;
+  the host itself needs looking at. Check `disk busy max` and
   the kernel log (`dmesg | grep "blocked for more"`) before trusting a step, and rerun it.
 - **After a host reboot run `task deploy`.** All vms come back (`on_boot`), but traefik did not
   on either traefik vm after plusha was powered off on 2026-09-22 (exit 137 during the docker
