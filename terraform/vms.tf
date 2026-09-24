@@ -12,12 +12,16 @@ locals {
       memory = 3072
       disk   = 30
     }
+    # 3 GiB, not more: the containers use ~650 MB, the rest only fills the
+    # guest page cache with log files. With 8 GiB per traefik vm the host
+    # (32 GB, 28 GB committed to vms) swapped guest memory and every vm hung
+    # on i/o for minutes (2026-09-22..24, see docs/RESULTS.md).
     traefik-1 = {
       role   = "traefik"
       vm_id  = 601
       ip     = "192.168.1.61"
       cores  = 4
-      memory = 8192
+      memory = 3072
       disk   = 30
     }
     traefik-2 = {
@@ -25,7 +29,7 @@ locals {
       vm_id  = 602
       ip     = "192.168.1.62"
       cores  = 4
-      memory = 8192
+      memory = 3072
       disk   = 30
     }
   }
@@ -110,7 +114,9 @@ resource "proxmox_virtual_environment_vm" "vm" {
     size         = each.value.disk
     iothread     = true
     discard      = "on"
-    cache        = "writeback"
+    # none, not writeback: writeback buffers guest writes a second time in
+    # the host page cache, memory the host does not have with 4 vms on it
+    cache = "none"
   }
 
   serial_device {

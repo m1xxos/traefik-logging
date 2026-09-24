@@ -144,13 +144,12 @@ PromQL, evaluated at the original step windows), so they are as good as the live
   vmsingle on control-1 hung (`victoria-metric blocked for more than 122 seconds`), fluent-bit
   and journald hung on traefik-1, vmsingle answered 429 after 10s. Same signature as the two
   loki-cluster stalls, at a fraction of the write load. The main cluster on plusha is powered
-  off, so it is not longhorn rebuilding: the disk itself got slow. At the 1000 rps step
+  off, so it is not longhorn rebuilding, and the nvme itself turned out to be fine: it is
+  host swap, see "Things that bite". At the 1000 rps step
   traefik-1 wrote 8.9 MB/s on 21-22.09 with its disk 13-19% busy; on 23.09 it wrote 3.1 MB/s
   with the disk 33% busy and idle control-1 at 57%; on 24.09 the host stalled at ~1.5 MB/s.
-  Same vms, same load, 3-6x less written, 2-4x busier: the change is on the host, after the
-  power cycles of 22/23.09. Check there before any further run: `iostat -x 5`,
-  `smartctl -a` / `nvme smart-log` on the pve-nvme device (wear, media errors, thermal
-  throttling), host `dmesg` for nvme resets, thin pool metadata usage (`lvs -a`).
+  Same vms, same load, 3-6x less written, 2-4x busier: the change is on the host, and it is
+  the traefik vms going from 2 to 8 GiB on the evening of 22.09.
 - Side finding: the go-httpbin/whoami containers behind traefik log every request to stdout
   and docker's json-file driver wrote 3.7 MB/s per traefik vm on top of the 1.9 MB/s access
   log (3.5 GB of json for `api` after two days). Now `logging: driver: none` for them.
@@ -178,10 +177,17 @@ upload to minio on the same disk).
 - Loki `per_stream_rate_limit` is raised to 32MB; with the default 3MB/s a single host+service
   stream is throttled at ~1000 rps and the numbers only show the throttle.
 - ELK needs `vm.max_map_count=1048576` (ansible sets it), and the cluster template writes 2 copies.
-- **plusha's disk stalls.** Host-wide i/o stalls on 2026-09-22 (twice, under loki cluster at
-  ~10 MB/s), 2026-09-23 (elk single at 5 MB/s, load stopped early) and 2026-09-24 (openobserve
-  single at 0.4 MB/s). The write load of the backend stopped explaining it on the third day;
-  the host itself needs looking at. Check `disk busy max` and
+- **The "disk stalls" were host swap.** Host-wide i/o stalls on 2026-09-22 (twice, under loki
+  cluster), 2026-09-23 (elk single) and 2026-09-24 (openobserve single at 0.4 MB/s of writes).
+  Looked at from the host: the nvme (ADATA LEGEND 710) is healthy and takes a 6 GB burst at
+  700-900 MB/s with 0.2 ms latency, but plusha has 32 GB of ram and after the traefik vms went
+  to 8 GiB on 22.09 the four bench vms held 28 GB of it. Guests fill their page cache with log
+  files, kvm rss grows, the host swaps guest memory to the sata ssd (3.2 GB swapped out within
+  90 minutes of a boot), and inside the guests that is `task blocked for more than 122
+  seconds` on whatever touches a swapped page: fluent-bit, jbd2, minio, vmsingle. Every stall
+  came after the 8 GiB change; the two runs before it never stalled. Fix: traefik vms back to
+  3 GiB (containers use ~650 MB) and vm disks `cache=none` instead of writeback, so guest
+  writes are not buffered a second time in host memory. Check `disk busy max` and
   the kernel log (`dmesg | grep "blocked for more"`) before trusting a step, and rerun it.
 - **After a host reboot run `task deploy`.** All vms come back (`on_boot`), but traefik did not
   on either traefik vm after plusha was powered off on 2026-09-22 (exit 137 during the docker
