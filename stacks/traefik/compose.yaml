@@ -2,7 +2,10 @@ services:
   traefik:
     image: traefik:v3.7.13
     container_name: traefik
-    restart: unless-stopped
+    # always, not unless-stopped: traefik takes longer than the 10s stop
+    # timeout on a host shutdown, gets a 137, and unless-stopped then leaves
+    # it down after the reboot (seen twice after plusha was powered off)
+    restart: always
     ports:
     - "80:80"
     - "8080:8080"
