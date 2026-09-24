@@ -30,6 +30,11 @@ comparison of durability.
 | loki | single | 500 | 1000 | 0.11 | 0.63 GiB | 1.5 MB/s | 1% | 0 | 0 | 0.26 GiB | loki 0.10 / 0.31 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 1000 | 2000 | 0.21 | 0.77 GiB | 3.1 MB/s | 1% | 0 | 0 | 0.24 GiB | loki 0.20 / 0.45 GiB, loki-grafana 0.01 / 0.32 GiB |
 | loki | single | 2000 | 4000 | 0.54 | 0.89 GiB | 6.3 MB/s | 2% | 0 | 0 | 0.52 GiB | loki 0.52 / 0.57 GiB, loki-grafana 0.01 / 0.32 GiB |
+| openobserve | cluster | 0 | 469 | 0.06 | 1.63 GiB | 0.2 MB/s | 3% | 0 | 0 | -0.03 GiB | minio 0.00 / 0.10 GiB, nats 0.00 / 0.01 GiB, openobserve x3 0.05 / 0.60 GiB each, postgres 0.00 / 0.09 GiB |
+| openobserve | cluster | 100 | 200 | 0.03 | 1.08 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.04 GiB | minio 0.00 / 0.07 GiB, nats 0.00 / 0.01 GiB, openobserve x3 0.02 / 0.40 GiB each, postgres 0.00 / 0.10 GiB |
+| openobserve | cluster | 500 | 1000 | 0.08 | 1.93 GiB | 0.3 MB/s | 0% | 0 | 0 | 0.06 GiB | minio 0.00 / 0.08 GiB, nats 0.00 / 0.01 GiB, openobserve x3 0.08 / 0.77 GiB each, postgres 0.00 / 0.10 GiB |
+| openobserve | cluster | 1000 | 2000 | 0.17 | 2.03 GiB | 0.7 MB/s | 0% | 0 | 0 | 0.07 GiB | minio 0.00 / 0.09 GiB, nats 0.00 / 0.01 GiB, openobserve x3 0.16 / 0.84 GiB each, postgres 0.00 / 0.08 GiB |
+| openobserve | cluster | 2000 | 4000 | 0.40 | 2.43 GiB | 1.5 MB/s | 9% | 0 | 0 | 0.32 GiB | minio 0.01 / 0.10 GiB, nats 0.00 / 0.01 GiB, openobserve x3 0.38 / 0.90 GiB each, postgres 0.00 / 0.08 GiB |
 | openobserve | single | 0 | 0 | 0.00 | 0.44 GiB | 0.0 MB/s | 1% | 0 | 0 | 0.00 GiB | openobserve 0.00 / 0.44 GiB |
 | openobserve | single | 100 | 200 | 0.02 | 0.55 GiB | 0.1 MB/s | 0% | 0 | 0 | 0.01 GiB | openobserve 0.02 / 0.55 GiB |
 | openobserve | single | 500 | 1000 | 0.07 | 0.83 GiB | 0.2 MB/s | 0% | 0 | 0 | 0.04 GiB | openobserve 0.07 / 0.83 GiB |
@@ -152,6 +157,23 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 - With traefik vms at 3 GiB and `cache=none` the two traefiks held exactly 2000 rps each for
   the first time (3972 achieved); before, with writeback, they peaked at ~1900.
 
+### openobserve cluster, 2026-09-24
+
+- 3x `ZO_NODE_ROLE=all` + one nats, postgres and minio on backend-1. 6 553 672 lines stored for
+  6 569 815 shipped (the difference is the query window edge, fluent-bit buffers were empty
+  at the end), retries 0, host swap flat.
+- 0.40 cores / 2.43 GiB at 2000 rps: same cpu as single (0.39), 2.2x the memory (0.90 GiB per
+  node plus 0.19 for minio, postgres, nats). Ingest goes to two nodes, queries from any node
+  see everything through the shared minio + postgres metadata.
+- Storage: 364 MB of parquet in minio plus 96 + 155 + 355 MB of wal and disk cache on the
+  three nodes, ~970 MB total for 6.55M lines, against 760 MB for single. One copy of the data
+  in minio (which is itself a single instance here), same durability class as victorialogs
+  cluster.
+- Two things had to change to get it up: `ZO_NATS_REPLICAS=1` (openobserve wants 3 jetstream
+  replicas by default and refuses to start against a single nats) and the minio image
+  (`bitnamilegacy/minio`: the upstream images are gone from docker hub and, since 24.09, from
+  quay.io too).
+
 ## Disk
 
 | run | disk write at 2000 rps | on disk after 6.55M lines |
@@ -162,6 +184,7 @@ PromQL, evaluated at the original step windows), so they are as good as the live
 | loki cluster | 9.5 MB/s at 1000 rps (3 nodes + minio) | 548 MB in minio + ~40 MB wal/index per node |
 | elk single | 4.9 MB/s (disk-bound, ~1800 lines/s indexed) | 897 MB after 5.53M lines |
 | openobserve single | 0.9 MB/s | 760 MB after 10.1M lines (339 MB parquet + wal/cache) |
+| openobserve cluster | 1.5 MB/s (3 nodes + minio) | ~970 MB after 6.55M lines (364 MB parquet in minio + wal/cache per node) |
 
 Raw input is ~6.4 MB/s at 2000 rps. victorialogs writes less to disk than it receives (it
 compresses in memory before flushing), loki writes about as much as it receives in single
