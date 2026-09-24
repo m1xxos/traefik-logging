@@ -39,42 +39,25 @@ services:
     - loki
     mem_limit: 448m
 
+  # bitnamilegacy, not quay.io/minio: the upstream images were pulled from
+  # docker hub in 09.2026 and the quay copies followed on 24.09. Same minio,
+  # bitnami packaging: data under /bitnami/minio/data, bucket created by
+  # MINIO_DEFAULT_BUCKETS so no mc init container is needed.
   minio:
-    image: quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
+    image: bitnamilegacy/minio:2025.7.23-debian-12-r5
     container_name: minio
     restart: unless-stopped
     network_mode: host
     profiles:
     - node1
-    command:
-    - server
-    - /data
-    - --address=:9000
-    - --console-address=:9001
     environment:
       MINIO_ROOT_USER: bench
       MINIO_ROOT_PASSWORD: ${BENCH_PASSWORD:?provided by ansible (ansible/stacks.yaml)}
+      MINIO_DEFAULT_BUCKETS: loki
       MINIO_PROMETHEUS_AUTH_TYPE: public
     volumes:
-    - minio:/data
-    mem_limit: 512m
-
-  minio-init:
-    image: quay.io/minio/mc:RELEASE.2025-08-13T08-35-41Z
-    container_name: minio-init
-    restart: "no"
-    network_mode: host
-    profiles:
-    - node1
-    entrypoint: ["/bin/sh", "-c"]
-    command:
-    - |
-      until mc alias set local http://127.0.0.1:9000 bench "$${BENCH_PASSWORD}"; do sleep 2; done
-      mc mb -p local/loki
-    environment:
-      BENCH_PASSWORD: ${BENCH_PASSWORD:?provided by ansible (ansible/stacks.yaml)}
-    depends_on:
-    - minio
+    - minio:/bitnami/minio/data
+    mem_limit: 640m
 
 volumes:
   loki:
