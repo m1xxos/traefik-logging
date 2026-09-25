@@ -24,4 +24,5 @@ task teardown
 ```
 
 grafana `http://192.168.1.60:3000` (bench dashboard + `traefik logs (victorialogs)` grouped by ServiceName), rps page `http://192.168.1.60:8000`, backend ui in
-`terraform output backend_ui`. results land in `docs/results/`, the summary is `docs/RESULTS.md`.
+`terraform output backend_ui`. results land in `docs/results/`, the summary with charts is `docs/RESULTS.md`
+(`task charts` regenerates them, `docs/charts.html` is the interactive version).

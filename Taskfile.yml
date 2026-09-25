@@ -47,6 +47,11 @@ tasks:
     cmds:
     - ./bench/run.sh {{.BACKEND}} {{.MODE}}
 
+  charts:
+    desc: "Regenerate docs/charts/*.svg and docs/charts.html from docs/results/*.csv"
+    cmds:
+    - python3 bench/charts.py
+
   backend-reset:
     desc: "Wipe the backend's data volumes and start it again, for a clean run without recreating the VMs"
     cmds:
